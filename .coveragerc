@@ -1,0 +1,4 @@
+[run]
+source = pur_beurre/
+omit =
+    /env/*
