@@ -57,7 +57,7 @@ ROOT_URLCONF = "pur_beurre.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR + "/templates/"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -121,3 +121,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+
+
+# CSV files
+
+RAW_CSV = BASE_DIR + "/openfoodfacts_raw.csv"
+MODIFIED_CSV = BASE_DIR + "/openfoodfacts_modified.csv"
