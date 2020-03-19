@@ -27,11 +27,18 @@ class Command(BaseCommand):
 
                 writer.writerow(header)
 
+                rows_count = 0
                 for row in reader:
-                    writer.writerow(row)
+                    # Check if there's a nutriscore_grade and nova_group
+                    if row[44] and row[45]:
+                        rows_count += 1
+                        writer.writerow(row)
+
         except Exception as e:
             raise CommandError(f"Something went wrong.\n{e}")
 
         self.stdout.write(
-            self.style.SUCCESS("Successfully formatted CSV file.")
+            self.style.SUCCESS(
+                f"Successfully formatted CSV file. {rows_count} products kept."
+            )
         )
