@@ -1,4 +1,4 @@
 [run]
-source = pur_beurre/
+source = .
 omit =
-    /env/*
+    /home/*
