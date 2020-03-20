@@ -19,7 +19,7 @@ script:
   - python manage.py migrate
   - python manage.py format_csv
   - python manage.py import_csv
-  - coverage run --omit virtualenv -m manage test
+  - coverage run --omit travis -m manage test
 
 after_success:
   - coveralls
