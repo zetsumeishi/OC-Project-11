@@ -1,5 +1,4 @@
 [run]
-include =
-    */pur_beurre/*
+source = pur_beurre
 omit =
-    */home/*
+    home
