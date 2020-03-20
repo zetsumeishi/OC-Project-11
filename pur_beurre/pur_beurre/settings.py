@@ -126,5 +126,5 @@ STATIC_URL = "/static/"
 
 # CSV files
 
-RAW_CSV = BASE_DIR + "/openfoodfacts_raw.csv"
-MODIFIED_CSV = BASE_DIR + "/openfoodfacts_modified.csv"
+RAW_CSV = BASE_DIR + "/csv/openfoodfacts_raw.csv"
+MODIFIED_CSV = BASE_DIR + "/csv/openfoodfacts_modified.csv"
