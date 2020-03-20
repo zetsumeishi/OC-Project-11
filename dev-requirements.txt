@@ -3,3 +3,4 @@ pre-commit>=2.2,<2.3
 ipdb>=0.13,<0.14
 coverage<5.0.0
 python-coveralls>=2.9,<3.0
+django-extensions>=2.2,<2.3
