@@ -1,3 +1,5 @@
 [run]
+include =
+    */pur_beurre/*
 omit =
-    /home/*
+    */home/*
