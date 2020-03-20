@@ -2,3 +2,5 @@
 source = .
 omit =
     home
+    asgi.py
+    wsgi.py
