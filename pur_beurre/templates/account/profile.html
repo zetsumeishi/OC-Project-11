@@ -1,0 +1,17 @@
+{# extends 'base.html' #}
+
+{% load static %}
+
+
+{% block title %}
+  Mon Compte
+{% endblock %}
+
+{% block content %}
+<button type="button" name="button">
+  <a href="{% url 'delete_account' %}">Supprimer mon compte</a>
+</button>
+<button type="button" name="button">
+  <a href="{% url 'password_change' %}">Mot de passe</a>
+</button>
+{% endblock %}
