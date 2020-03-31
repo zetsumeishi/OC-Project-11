@@ -198,4 +198,12 @@ header.masthead h1 {
   color: rgba(255, 255, 255, 0.75);
 }
 
+#logo {
+  margin-right: 10px;
+}
+
+form {
+  margin-top: 100px;
+}
+
 /*# sourceMappingURL=main.css.map */
