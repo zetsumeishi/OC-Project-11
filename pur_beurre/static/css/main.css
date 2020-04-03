@@ -1,12 +1,25 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Scope+One&display=swap");
-#jumbotron {
+html, body {
+  height: 100%;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 1px solid #ced4da;
+}
+
+nav {
+  color: black;
+}
+
+section#jumbotron {
   color: white;
   height: 100vh;
   background-image: url("/static/img/jumbotron-bg.jpg");
   background-size: cover;
 }
 
-#contact {
+section#contact {
   color: white;
   background-color: #345A61;
 }

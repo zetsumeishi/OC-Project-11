@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 
 {% block title %}
-  Deconnexion
+Deconnexion
 {% endblock %}
 
 {% block content %}
-  <p>Logged out!</p>
-  <a href="{% url 'login'%}">Click here to login again.</a>
+<p>Vous etes deconnecte.</p>
+<p>
+  <a href="{% url 'login'%}">Cliquez ici</a> pour vous reconnecter.
+</p>
 {% endblock %}

@@ -25,7 +25,7 @@ def signup(request):
             login(request, user)
             return HttpResponseRedirect("/")
     else:
-        context["signup_form"] = AccountCreationForm()
+        context["form"] = AccountCreationForm()
         return render(request, "account/signup.html", context=context)
 
 

@@ -46,17 +46,17 @@ urlpatterns = [
         name="password_reset_done",
     ),
     path(
-        "confirmation-reinitialisation/",
+        "confirmation-reinitialisation/<uidb64>/<token>/",
         auth_views.PasswordResetConfirmView.as_view(
-            template_name="account/password_reset_confirmation.html"
+            template_name="account/password_reset_confirm.html"
         ),
-        name="password_reset_confirmation",
+        name="password_reset_confirm",
     ),
     path(
         "reinitialisation-terminee/",
         auth_views.PasswordResetCompleteView.as_view(
             template_name="account/password_reset_complete.html"
         ),
-        name="password_reset_completec",
+        name="password_reset_complete",
     ),
 ]
