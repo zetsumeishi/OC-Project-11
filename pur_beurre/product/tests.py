@@ -15,6 +15,7 @@ class ProductModelTest(TestCase):
             "saturated_fat_100g": "10.6",
             "sugars_100g": "56.3",
             "salt_100g": "0.107",
+            "category": "Cocoa and hazelnuts spreads",
         }
         self.product = Product(**self.product_data)
 

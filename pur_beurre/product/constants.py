@@ -8,4 +8,5 @@ PRODUCT_FIELDS = [
     "saturated_fat_100g",
     "sugars_100g",
     "salt_100g",
+    "categories_tags",
 ]

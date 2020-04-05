@@ -15,6 +15,7 @@ class Product(models.Model):
     sugars_100g = models.DecimalField(
         max_digits=6, decimal_places=3, null=True
     )
+    category = models.CharField(max_length=128)
 
     def __str__(self):
         return self.product_name
