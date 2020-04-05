@@ -9,6 +9,9 @@ class Account(AbstractBaseUser):
     email = models.EmailField(
         verbose_name="email address", max_length=255, unique=True,
     )
+    first_name = models.CharField(
+        verbose_name="Prenom", blank=False, max_length=30
+    )
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
@@ -17,7 +20,7 @@ class Account(AbstractBaseUser):
     objects = AccountManager()
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ["first_name"]
 
     def __str__(self):
         return self.email
