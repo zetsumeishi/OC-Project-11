@@ -39,4 +39,6 @@ def profile(request):
 
 @login_required
 def delete_account(request):
-    pass
+    user = request.user
+    user.delete()
+    return HttpResponseRedirect("/")
