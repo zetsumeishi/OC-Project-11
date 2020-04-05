@@ -2,8 +2,15 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Scope+One&display=swap');
 @import 'variables.scss';
 
+// General
+
 html, body {
+  font-family: "Scope One", cursive, sans-serif;
   height: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Open Sans", cursive, sans-serif;
 }
 
 .form-control:focus {
@@ -11,22 +18,43 @@ html, body {
   border: 1px solid #ced4da;
 }
 
+.mt-100 {
+  margin-top: 100px;
+}
+
+.jumbotron {
+  color: white;
+  background-size: cover;
+  margin-bottom: 0;
+  height: 100vh;
+}
+
+// Navbar
+
 nav {
   color: black;
 }
 
-section#jumbotron {
-  color: white;
-  height: 100vh;
-  background-image: url('/static/img/jumbotron-bg.jpg');
-  background-size: cover;
-}
+// Footer
 
-section#contact {
-  color: white;
+footer {
   background-color: $mussel;
 }
 
-footer {
+// Home
 
+section#home-jumbotron {
+  background-image: url('/static/img/home-jumbotron-bg.jpg');
+}
+
+section#about {
+}
+
+section#contact {
+}
+
+// Profile
+
+section#profile-jumbotron {
+  background-image: url('/static/img/profile-jumbotron-bg.jpg');
 }
