@@ -1,8 +1,7 @@
-from django.forms import ModelForm
+from django import forms
+
 from .models import Product
 
 
-class ArticleForm(ModelForm):
-    class Meta:
-        model = Product
-        fields = ["product_name"]
+class SearchForm(forms.Form):
+    product_name = forms.CharField(max_length=100)

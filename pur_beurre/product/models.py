@@ -19,3 +19,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.product_name
+
+    def find_substitute(self):
+        return Product.objects.filter(
+            category=self.category, nutriscore_grade__lt=self.nutriscore_grade
+        ).order_by("nutriscore_grade", "nova_group")

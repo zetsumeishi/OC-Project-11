@@ -10,9 +10,11 @@
   <div class="container text-center">
     <h1>Du gras, oui, mais de qualité !</h1>
     <h2>Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
-    <form class="form-inline my-2 my-lg-0 justify-content-center">
-      <input type="text" class="form-control" id="jumbotron-search" placeholder="Produit...">
-      <button type="submit" class="btn btn-primary my-2 my-sm-0">Chercher</button>
+    <form action="{% url 'search' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        {{form.media}}
+        <input type="submit" value="Chercher">
     </form>
   </div>
 </section>
@@ -55,4 +57,20 @@
       </div>
     </div>
 </section>
+{% endblock %}
+
+{% block ajax %}
+<script>
+  $(document).ready(function(){
+    $("#id_product_name").autocomplete({
+      source: "/ajax/recherche/",
+      minLength: 2,
+      open: function(){
+          setTimeout(function () {
+              $('.ui-autocomplete').css('z-index', 99);
+          }, 0);
+      }
+    });
+  });
+</script>
 {% endblock %}

@@ -32,6 +32,11 @@ footer {
   background-color: #345A61;
 }
 
+ul.ui-autocomplete {
+  padding-top: 25px;
+  background-color: white;
+}
+
 section#home-jumbotron {
   background-image: url("/static/img/home-jumbotron-bg.jpg");
 }
