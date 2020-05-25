@@ -15,8 +15,8 @@
           <img src="{{ substitute.image_url }}" alt="{{ substitute.product_name }}" height="auto" width="200">
         </div>
         <div class="card-footer">
-          <p>{{ substitute.product_name }}</p>
-
+          <p id="{{ substitute.id }}">{{ substitute.product_name }}</p>
+          <p><a class="favorite-link" href="{% url 'add_favorite' %}">Sauvegarder</a></p>
         </div>
       </div>
       {% if forloop.counter|divisibleby:"3" %}
@@ -28,4 +28,21 @@
     <p>Aucun resultats</p>
   {% endif %}
 </div>
+{% endblock %}
+
+{% block ajax %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.favorite-link').click(function(event) {
+      event.preventDefault();
+      $.ajax({
+        url: "{% url 'add_favorite' %}",
+        type: "GET",
+        data: {
+          'product_id': this.parentNode.previousElementSibling.id,
+        },
+      });
+    });
+  });
+</script>
 {% endblock %}

@@ -6,6 +6,9 @@ from . import views
 urlpatterns = [
     path("", views.profile, name="profile"),
     path("inscription/", views.signup, name="signup"),
+    path("mes-favoris/", views.favorites, name="favorites"),
+    path("ajax/ajout-favoris/", views.add_favorite, name="add_favorite",),
+    path("retirer-favori/", views.remove_favorite, name="remove_favorite"),
     path("supprimer-mon-compte/", views.delete_account, name="delete_account"),
     path(
         "connexion/",

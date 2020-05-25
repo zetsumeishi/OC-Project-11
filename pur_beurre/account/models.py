@@ -31,6 +31,9 @@ class Account(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
+    def get_favorites(self):
+        return self.favorites.all()
+
     @property
     def is_staff(self):
         return self.is_admin
