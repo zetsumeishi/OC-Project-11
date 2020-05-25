@@ -1,0 +1,48 @@
+/* Home */
+
+.pattern {
+  background-color: black;
+  opacity: 50%;
+}
+
+section#home-jumbotron {
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('/static/img/home-jumbotron-bg.jpg');
+  & h1, h2 {
+    background-color: rgba(232, 167, 93, 0.7);
+    padding: 20px;
+  }
+  & input#id_product_name {
+    border-radius: 0;
+    border: 1px solid $caramel;
+    width: 300px;
+  }
+  & input[type="submit"] {
+    height: 2em;
+    border-radius: 0;
+    border: none;
+    background-color: $caramel;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-left: -4px;
+    &:hover {
+      border: 1px solid $caramel;
+      border-style: inset solid;
+      background-color: white;
+      color: $caramel;
+    }
+  }
+}
+
+section hr {
+  width: 100px;
+  border-color: $dark-grey;
+}
+
+section#about {
+  background-color: white;
+}
+
+section#contact {
+  background-color: $biscuit;
+}

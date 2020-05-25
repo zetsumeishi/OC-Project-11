@@ -1,20 +1,151 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Scope+One&display=swap");
+/* Includes and static pages */
+/* Legal Notice */
+#legal-notice h1, #legal-notice h2 {
+  font-weight: bold;
+}
+#legal-notice li::marker {
+  color: #DE9440;
+}
+
+/* Navbar */
+nav {
+  color: black;
+}
+nav .nav-link {
+  color: #333;
+}
+nav .nav-link:hover {
+  color: #DE9440 !important;
+}
+nav input#id_product_name {
+  border-radius: 0;
+  border: 1px solid #DE9440;
+}
+nav input[type=submit] {
+  height: 2em;
+  border-radius: 0;
+  border: none;
+  background-color: #DE9440;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-left: -4px;
+}
+nav input[type=submit]:hover {
+  border: 1px solid #DE9440;
+  border-style: inset solid;
+  background-color: white;
+  color: #DE9440;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+}
+footer span > a {
+  color: white;
+}
+footer span > a:hover {
+  color: #DE9440;
+  text-decoration: none;
+}
+
+/* Home */
+.pattern {
+  background-color: black;
+  opacity: 50%;
+}
+
+section#home-jumbotron {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("/static/img/home-jumbotron-bg.jpg");
+}
+section#home-jumbotron h1, section#home-jumbotron h2 {
+  background-color: rgba(232, 167, 93, 0.7);
+  padding: 20px;
+}
+section#home-jumbotron input#id_product_name {
+  border-radius: 0;
+  border: 1px solid #DE9440;
+  width: 300px;
+}
+section#home-jumbotron input[type=submit] {
+  height: 2em;
+  border-radius: 0;
+  border: none;
+  background-color: #DE9440;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  margin-left: -4px;
+}
+section#home-jumbotron input[type=submit]:hover {
+  border: 1px solid #DE9440;
+  border-style: inset solid;
+  background-color: white;
+  color: #DE9440;
+}
+
+section hr {
+  width: 100px;
+  border-color: #333;
+}
+
+section#about {
+  background-color: white;
+}
+
+section#contact {
+  background-color: #E8A75D;
+}
+
+/* Account */
+/* Profile */
+div#profile {
+  /* Create a components scss file for buttons */
+}
+div#profile button {
+  height: 2em;
+  border-radius: 0;
+  border: none;
+  background-color: #DE9440;
+}
+div#profile button:hover {
+  border: 1px solid #DE9440;
+  border-style: inset solid;
+  background-color: white;
+  color: #DE9440;
+}
+div#profile button a {
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
 html, body {
   font-family: "Scope One", cursive, sans-serif;
   height: 100%;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, #nav-title {
   font-family: "Open Sans", cursive, sans-serif;
 }
 
 .form-control:focus {
   box-shadow: none;
-  border: 1px solid #ced4da;
 }
 
 .mt-100 {
-  margin-top: 100px;
+  margin-top: 76px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
 }
 
 .jumbotron {
@@ -24,21 +155,14 @@ h1, h2, h3, h4, h5 {
   height: 100vh;
 }
 
-nav {
-  color: black;
-}
-
-footer {
-  background-color: #345A61;
-}
-
 ul.ui-autocomplete {
   padding-top: 25px;
   background-color: white;
 }
 
-section#home-jumbotron {
-  background-image: url("/static/img/home-jumbotron-bg.jpg");
+input.ui-autocomplete-input {
+  border-radius: 0;
+  border: 2px #86EBE6 solid;
 }
 
 section#profile-jumbotron {

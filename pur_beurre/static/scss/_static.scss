@@ -1,0 +1,57 @@
+/* Includes and static pages */
+
+/* Legal Notice */
+
+#legal-notice {
+  & h1, h2 {
+    font-weight: bold;
+  }
+  & li::marker {
+    color: $caramel;
+  }
+}
+
+/* Navbar */
+
+nav {
+  color: black;
+  & .nav-link {
+    color: $dark-grey;
+    &:hover {
+      color: $caramel !important;
+    }
+  }
+  & input#id_product_name {
+    border-radius: 0;
+    border: 1px solid $caramel;
+  }
+  & input[type="submit"] {
+    height: 2em;
+    border-radius: 0;
+    border: none;
+    background-color: $caramel;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-left: -4px;
+    &:hover {
+      border: 1px solid $caramel;
+      border-style: inset solid;
+      background-color: white;
+      color: $caramel;
+    }
+  }
+}
+
+/* Footer */
+
+footer {
+  background-color: $dark-grey;
+  & span > a {
+    color: white;
+    &:hover {
+      color: $caramel;
+      text-decoration: none;
+    }
+  }
+}

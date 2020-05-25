@@ -14,15 +14,15 @@
     <h2>{{ request.user.first_name }}</h2>
   </div>
 </section>
-<div class="container mt-5 pt-5">
+<div id="profile" class="container mt-5 pt-5 mb-5">
   <div class="d-flex flex-row justify-content-center">
     <p>{{ request.user.email }}</p>
   </div>
   <div class="d-flex flex-row justify-content-center">
-    <button type="button" name="button">
+    <button class="mr-2" type="button" name="button">
       <a href="{% url 'delete_account' %}">Supprimer mon compte</a>
     </button>
-    <button type="button" name="button">
+    <button class="ml-2" type="button" name="button">
       <a href="{% url 'password_change' %}">Changer de mot de passe</a>
     </button>
   </div>
