@@ -138,6 +138,7 @@ MODIFIED_CSV = BASE_DIR + "/csv/openfoodfacts_modified.csv"
 
 # Authentication
 
+LOGIN_URL = "/account/connexion/"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 AUTH_USER_MODEL = "account.Account"
