@@ -1,0 +1,15 @@
+[
+   {
+      "model":"account.account",
+      "pk":1,
+      "fields":{
+         "password":"password",
+         "email":"olivier.loustaunau@gmail.com",
+         "first_name":"Olivier",
+         "is_active":true,
+         "is_admin":true
+
+       }
+
+    }
+]

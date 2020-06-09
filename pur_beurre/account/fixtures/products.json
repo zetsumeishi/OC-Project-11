@@ -1,0 +1,66 @@
+[
+   {
+      "model":"product.product",
+      "pk":1,
+      "fields":{
+         "product_name":"Milka Daim",
+         "url":"https://fr.openfoodfacts.org/produit/7622300201753",
+         "image_url":"https://static.openfoodfacts.org/images/products/762/230/020/1753/front_fr.12.400.jpg",
+         "nova_group":"4",
+         "nutriscore_grade":"e",
+         "saturated_fat_100g":16.500,
+         "fat_100g":29.500,
+         "salt_100g":0.570,
+         "sugars_100g":58.000,
+         "category":"milk-chocolates"
+      }
+   },
+   {
+      "model":"product.product",
+      "pk":2,
+      "fields":{
+         "product_name":"I love Milka Pralinès Nuss-Nougat-Crème",
+         "url":"https://fr.openfoodfacts.org/produit/7622210146038",
+         "image_url":"https://static.openfoodfacts.org/images/products/762/221/014/6038/front_de.13.400.jpg",
+         "nova_group":"4",
+         "nutriscore_grade":"e",
+         "saturated_fat_100g":17.500,
+         "fat_100g":33.000,
+         "salt_100g":0.350,
+         "sugars_100g":545.000,
+         "category":"bonbons"
+      }
+   },
+   {
+      "model":"product.product",
+      "pk":3,
+      "fields":{
+         "product_name":"Milka - Crispello - Saveur Vanille",
+         "url":"https://fr.openfoodfacts.org/produit/7622300690670",
+         "image_url":"https://static.openfoodfacts.org/images/products/762/230/069/0670/front_fr.10.400.jpg",
+         "nova_group":"4",
+         "nutriscore_grade":"e",
+         "saturated_fat_100g":17.500,
+         "fat_100g":35.000,
+         "salt_100g":0.381,
+         "sugars_100g":40.500,
+         "category":"confectioneries"
+      }
+   },
+   {
+      "model":"product.product",
+      "pk":4,
+      "fields":{
+         "product_name":"i Love Milka Pralinés",
+         "url":"https://fr.openfoodfacts.org/produit/7622300215286",
+         "image_url":"https://static.openfoodfacts.org/images/products/762/230/021/5286/front_fr.9.400.jpg",
+         "nova_group":"4",
+         "nutriscore_grade":"e",
+         "saturated_fat_100g":17.500,
+         "fat_100g":33.000,
+         "salt_100g":0.350,
+         "sugars_100g":54.500,
+         "category":"bonbons"
+      }
+   }
+]
