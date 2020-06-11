@@ -1,11 +1,12 @@
-import os
+# import os
 
 from django.test import TestCase, LiveServerTestCase
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-from django.test.client import Client
-from django.urls import reverse
 
-from selenium import webdriver
+# from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+# from django.test.client import Client
+# from django.urls import reverse
+
+# from selenium import webdriver
 
 from .models import Product
 from .forms import SearchForm
@@ -50,28 +51,28 @@ class ProductFormsTests(TestCase):
         self.assertFalse(form.is_valid())
 
 
-class ProductViewsTests(StaticLiveServerTestCase):
-    fixtures = ["products.json"]
-
-    def setUp(self):
-        self.search_term = "Milka"
-        self.client = Client()
-        self.selenium = webdriver.Chrome(os.environ.get("CHROME_DRIVER"))
-        self.selenium.implicitly_wait(10)
-        self.selenium.set_window_position(0, 0)
-        self.selenium.set_window_size(1280, 960)
-
-    def test_search(self):
-        response = self.client.post(
-            reverse("search"), data={"product_name": "Ferrero Rocher"}
-        )
-        self.assertEqual(response.status_code, 200)
-
-    def test_autocomplete_product(self):
-        self.selenium.get(self.live_server_url)
-        product_input = self.selenium.find_element_by_id("id_product_name")
-        product_input.send_keys(self.search_term)
-        product_input.send_keys(" ")
-        self.assertTrue(
-            self.selenium.find_element_by_xpath('//*[@id="ui-id-1"]')
-        )
+# class ProductViewsTests(StaticLiveServerTestCase):
+#     fixtures = ["products.json"]
+#
+#     def setUp(self):
+#         self.search_term = "Milka"
+#         self.client = Client()
+#         self.selenium = webdriver.Chrome(os.environ.get("CHROME_DRIVER"))
+#         self.selenium.implicitly_wait(10)
+#         self.selenium.set_window_position(0, 0)
+#         self.selenium.set_window_size(1280, 960)
+#
+#     def test_search(self):
+#         response = self.client.post(
+#             reverse("search"), data={"product_name": "Ferrero Rocher"}
+#         )
+#         self.assertEqual(response.status_code, 200)
+#
+#     def test_autocomplete_product(self):
+#         self.selenium.get(self.live_server_url)
+#         product_input = self.selenium.find_element_by_id("id_product_name")
+#         product_input.send_keys(self.search_term)
+#         product_input.send_keys(" ")
+#         self.assertTrue(
+#             self.selenium.find_element_by_xpath('//*[@id="ui-id-1"]')
+#         )
