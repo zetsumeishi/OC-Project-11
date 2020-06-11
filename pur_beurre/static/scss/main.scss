@@ -9,6 +9,7 @@ html {
   font-family: "Scope One", cursive, sans-serif;
   font-size: 18px;
   height: 100%;
+  color: $dark-grey;
 }
 
 #nav-title,
@@ -42,6 +43,11 @@ h5 {
   margin-bottom: 0;
   height: 100vh;
   border-radius: 0;
+}
+
+.pattern-bg {
+  background: url("/static/img/pattern_white.jpg") repeat white;
+  background-size: 50%;
 }
 
 @import 'static.scss';

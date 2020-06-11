@@ -90,6 +90,15 @@ nav.affix {
   }
 }
 
+.nav-dark {
+  color: $dark-grey!important;
+  transition: cubic-bezier(.47,0,.74,.71) 0.2s;
+
+  &:hover {
+    color: $biscuit!important;
+  }
+}
+
 /* Footer */
 footer {
   background-color: $dark-grey;
