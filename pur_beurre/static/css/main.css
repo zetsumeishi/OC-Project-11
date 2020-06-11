@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Scope+One&display=swap");
 /* Includes and static pages */
 /* Legal Notice */
-#legal-notice h1, #legal-notice h2 {
+#legal-notice h1,
+#legal-notice h2 {
   font-weight: bold;
 }
 #legal-notice li::marker {
@@ -9,34 +10,68 @@
 }
 
 /* Navbar */
-nav {
+nav.navbar {
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.75s;
+  height: 80px;
+}
+nav.navbar #nav-title {
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.75s;
+  font-size: 1.2em;
+}
+nav.navbar input#nav_product_name {
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.75s;
+  border-radius: 3px;
+  box-shadow: 0 3px 0 0 #DE9440;
+  border: 1px solid #DE9440;
+}
+nav.navbar #logo {
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.75s;
+  height: 60px;
+  width: auto;
+}
+nav.navbar a {
+  color: white;
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.2s;
+}
+nav.navbar a:hover {
+  color: #E8A75D;
+}
+nav.navbar a:active {
+  color: #E8A75D;
+}
+nav.navbar a.dropdown-item {
   color: black;
 }
-nav .nav-link {
-  color: #333;
+nav.navbar a.dropdown-item:hover {
+  color: #E8A75D;
 }
-nav .nav-link:hover {
-  color: #DE9440 !important;
+nav.navbar a.dropdown-item:active {
+  color: #E8A75D;
 }
-nav input#id_product_name {
-  border-radius: 0;
-  border: 1px solid #DE9440;
-}
-nav input[type=submit] {
-  height: 2em;
-  border-radius: 0;
-  border: none;
-  background-color: #DE9440;
-  color: white;
-  text-transform: uppercase;
-  font-weight: bolder;
-  margin-left: -4px;
-}
-nav input[type=submit]:hover {
-  border: 1px solid #DE9440;
-  border-style: inset solid;
+
+nav.affix {
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.75s;
+  height: 60px;
   background-color: white;
-  color: #DE9440;
+}
+nav.affix #nav-title {
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.75s;
+  font-size: 1em;
+}
+nav.affix input#nav_product_name {
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.75s;
+  border-radius: 3px;
+  box-shadow: none;
+  border: 1px solid #DE9440;
+}
+nav.affix #logo {
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.75s;
+  height: 40px;
+  width: auto;
+}
+nav.affix a {
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.2s;
+  color: #333;
 }
 
 /* Footer */

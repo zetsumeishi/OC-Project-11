@@ -1,54 +1,102 @@
 /* Includes and static pages */
 
 /* Legal Notice */
-
 #legal-notice {
-  & h1, h2 {
+  & h1,
+  h2 {
     font-weight: bold;
   }
+
   & li::marker {
     color: $caramel;
   }
 }
 
 /* Navbar */
+nav.navbar {
+  transition: cubic-bezier(.47,0,.74,.71) 0.75s;
+  height: 80px;
 
-nav {
-  color: black;
-  & .nav-link {
-    color: $dark-grey;
-    &:hover {
-      color: $caramel !important;
-    }
+  & #nav-title {
+    transition: cubic-bezier(.47,0,.74,.71) 0.75s;
+    font-size: 1.2em;
   }
-  & input#id_product_name {
-    border-radius: 0;
+
+  & input#nav_product_name {
+    transition: cubic-bezier(.47,0,.74,.71) 0.75s;
+    border-radius: 3px;
+    box-shadow: 0 3px 0 0 $caramel;
     border: 1px solid $caramel;
   }
-  & input[type="submit"] {
-    height: 2em;
-    border-radius: 0;
-    border: none;
-    background-color: $caramel;
+
+  & #logo {
+    transition: cubic-bezier(.47,0,.74,.71) 0.75s;
+    height: 60px;
+    width: auto;
+  }
+
+  & a {
     color: white;
-    text-transform: uppercase;
-    font-weight: bolder;
-    margin-left: -4px;
+    transition: cubic-bezier(.47,0,.74,.71) 0.2s;
+
     &:hover {
-      border: 1px solid $caramel;
-      border-style: inset solid;
-      background-color: white;
-      color: $caramel;
+      color: $biscuit;
+    }
+
+    &:active {
+      color: $biscuit;
+    }
+  }
+
+  & a.dropdown-item {
+    color: black;
+
+    &:hover {
+      color: $biscuit;
+    }
+
+    &:active {
+      color: $biscuit;
     }
   }
 }
 
-/* Footer */
+nav.affix {
+  transition: cubic-bezier(.47,0,.74,.71) 0.75s;
+  height: 60px;
+  background-color: white;
 
+  & #nav-title {
+    transition: cubic-bezier(.47,0,.74,.71) 0.75s;
+    font-size: 1em;
+  }
+
+  & input#nav_product_name {
+    transition: cubic-bezier(.47,0,.74,.71) 0.75s;
+    border-radius: 3px;
+    box-shadow: none;
+    border: 1px solid $caramel;
+  }
+
+  & #logo {
+    transition: cubic-bezier(.47,0,.74,.71) 0.75s;
+    height: 40px;
+    width: auto;
+  }
+
+  & a {
+    transition: cubic-bezier(.47,0,.74,.71) 0.2s;
+    color: $dark-grey;
+  }
+}
+
+/* Footer */
 footer {
   background-color: $dark-grey;
+
   & span > a {
     color: white;
+
     &:hover {
       color: $caramel;
       text-decoration: none;
