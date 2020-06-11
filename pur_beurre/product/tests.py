@@ -1,14 +1,14 @@
+import os
+
 from django.test import TestCase, LiveServerTestCase
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.test.client import Client
-import json
 from django.urls import reverse
-import os
+
+from selenium import webdriver
+
 from .models import Product
 from .forms import SearchForm
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
 
 
 class ProductModelsTests(LiveServerTestCase):
@@ -18,7 +18,7 @@ class ProductModelsTests(LiveServerTestCase):
         self.product_data = {
             "product_name": "Ferrero Rocher",
             "url": "https://fr.openfoodfacts.org/produit/4008400163826",
-            "image_url": "https://static.openfoodfacts.org/images/products/400/840/016/3826/front_de.8.400.jpg",
+            "image_url": "https://static.openfoodfacts.org/images/products/400/840/016/3826/front_de.8.400.jpg",  # NOQA
             "nova_group": "4",
             "nutriscore_grade": "e",
             "saturated_fat_100g": 14.100,
