@@ -1,4 +1,44 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Scope+One&display=swap");
+body,
+html {
+  font-family: "Scope One", cursive, sans-serif;
+  font-size: 18px;
+  height: 100%;
+}
+
+#nav-title,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Open Sans", cursive, sans-serif;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.mt-100 {
+  margin-top: 76px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+.jumbotron {
+  color: white;
+  background-size: cover;
+  margin-bottom: 0;
+  height: 100vh;
+  border-radius: 0;
+}
+
 /* Includes and static pages */
 /* Legal Notice */
 #legal-notice h1,
@@ -87,36 +127,35 @@ footer span > a:hover {
 }
 
 /* Home */
-.pattern {
-  background-color: black;
-  opacity: 50%;
-}
-
 section#home-jumbotron {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.6) 100%), url("/static/img/home-jumbotron-bg.jpg");
+  background-image: url("/static/img/home-jumbotron-bg.jpg");
 }
-section#home-jumbotron h1, section#home-jumbotron h2 {
+section#home-jumbotron h1,
+section#home-jumbotron h2 {
   background-color: rgba(232, 167, 93, 0.7);
-  padding: 20px;
+  padding: 10px 15px;
+  border-radius: 4px;
 }
-section#home-jumbotron input#id_product_name {
-  border-radius: 0;
-  border: 1px solid #DE9440;
-  width: 300px;
+section#home-jumbotron input#jumbotron_product_name {
+  height: 2em;
+  border-radius: 3px;
+  box-shadow: none;
+  border: none;
 }
 section#home-jumbotron input[type=submit] {
   height: 2em;
-  border-radius: 0;
   border: none;
+  border-radius: 0 3px 3px 0;
   background-color: #DE9440;
   color: white;
   text-transform: uppercase;
   font-weight: bolder;
-  margin-left: -4px;
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.25s;
+  margin-left: -8px;
 }
 section#home-jumbotron input[type=submit]:hover {
-  border: 1px solid #DE9440;
-  border-style: inset solid;
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.25s;
+  border-left: 1px solid #DE9440;
   background-color: white;
   color: #DE9440;
 }
@@ -126,19 +165,34 @@ section hr {
   border-color: #333;
 }
 
-section#about {
-  background-color: white;
+section#contact {
+  background: url("/static/img/pattern_caramel.jpg") repeat #DE9440;
+  background-size: 50%;
+}
+section#contact svg {
+  font-size: 1.8em;
+}
+section#contact a {
+  color: inherit;
+}
+section#contact a:hover {
+  color: white;
 }
 
-section#contact {
-  background-color: #E8A75D;
+section#about {
+  background: url("/static/img/pattern_white.jpg") repeat white;
+  background-size: 50%;
+}
+
+section#about h2, section#contact h2, section#home-jumbotron h2 {
+  font-size: 2.3em;
+}
+section#about p, section#contact p, section#home-jumbotron p {
+  font-size: 1.2em;
 }
 
 /* Account */
 /* Profile */
-div#profile {
-  /* Create a components scss file for buttons */
-}
 div#profile button {
   height: 2em;
   border-radius: 0;
@@ -156,48 +210,6 @@ div#profile button a {
   text-transform: uppercase;
   font-weight: bolder;
   text-decoration: none;
-}
-
-html, body {
-  font-family: "Scope One", cursive, sans-serif;
-  height: 100%;
-}
-
-h1, h2, h3, h4, h5, #nav-title {
-  font-family: "Open Sans", cursive, sans-serif;
-}
-
-.form-control:focus {
-  box-shadow: none;
-}
-
-.mt-100 {
-  margin-top: 76px;
-}
-
-.mt-50 {
-  margin-top: 50px;
-}
-
-.mb-50 {
-  margin-bottom: 50px;
-}
-
-.jumbotron {
-  color: white;
-  background-size: cover;
-  margin-bottom: 0;
-  height: 100vh;
-}
-
-ul.ui-autocomplete {
-  padding-top: 25px;
-  background-color: white;
-}
-
-input.ui-autocomplete-input {
-  border-radius: 0;
-  border: 2px #86EBE6 solid;
 }
 
 section#profile-jumbotron {

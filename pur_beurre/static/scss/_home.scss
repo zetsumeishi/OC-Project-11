@@ -1,33 +1,41 @@
 /* Home */
-
-.pattern {
-  background-color: black;
-  opacity: 50%;
-}
+// .pattern {
+//   background-color: black;
+//   opacity: 50%;
+// }
 
 section#home-jumbotron {
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url('/static/img/home-jumbotron-bg.jpg');
-  & h1, h2 {
+  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("/static/img/home-jumbotron-bg.jpg");
+  background-image: url("/static/img/home-jumbotron-bg.jpg");
+
+  & h1,
+  h2 {
     background-color: rgba(232, 167, 93, 0.7);
-    padding: 20px;
+    padding: 10px 15px;
+    border-radius: 4px;
   }
-  & input#id_product_name {
-    border-radius: 0;
-    border: 1px solid $caramel;
-    width: 300px;
+
+  & input#jumbotron_product_name {
+    height: 2em;
+    border-radius: 3px;
+    box-shadow: none;
+    border: none;
   }
+
   & input[type="submit"] {
     height: 2em;
-    border-radius: 0;
     border: none;
+    border-radius: 0 3px 3px 0;
     background-color: $caramel;
     color: white;
     text-transform: uppercase;
     font-weight: bolder;
-    margin-left: -4px;
+    transition: cubic-bezier(.47,0,.74,.71) 0.25s;
+    margin-left: -8px;
+
     &:hover {
-      border: 1px solid $caramel;
-      border-style: inset solid;
+      transition: cubic-bezier(.47,0,.74,.71) 0.25s;
+      border-left: 1px solid $caramel;
       background-color: white;
       color: $caramel;
     }
@@ -39,10 +47,31 @@ section hr {
   border-color: $dark-grey;
 }
 
-section#about {
-  background-color: white;
+section#contact {
+  background: url("/static/img/pattern_caramel.jpg") repeat $caramel;
+  background-size: 50%;
+  & svg {
+    font-size: 1.8em;
+  }
+  & a {
+    color: inherit;
+    &:hover {
+      color: white;
+    }
+  }
 }
 
-section#contact {
-  background-color: $biscuit;
+
+section#about {
+  background: url("/static/img/pattern_white.jpg") repeat white;
+  background-size: 50%;
+}
+
+section#about, section#contact, section#home-jumbotron {
+  & h2 {
+    font-size: 2.3em;
+  }
+  & p {
+    font-size: 1.2em;
+  }
 }

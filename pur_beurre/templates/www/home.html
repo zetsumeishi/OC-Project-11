@@ -6,19 +6,25 @@
 {% endblock %}
 
 {% block content %}
-<section id="home-jumbotron" class="jumbotron jumbotron-fluid d-flex align-items-center">
-  <div class="container text-center">
-    <h1>Du gras, oui, mais de qualité !</h1>
-    <h2>Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
-    <form class="mt-5" action="{% url 'search' %}" method="post">
-        {% csrf_token %}
-        {{search_form.product_name}}
-        {{search_form.media}}
-        <input type="submit" value="Chercher">
-    </form>
+<section id="home-jumbotron" class="jumbotron d-flex align-items-center justify-items-center">
+  <div class="container">
+    <div class="d-flex flex-row justify-content-center">
+      <h1>Du gras, oui, mais de qualité !</h1>
+    </div>
+    <div class="d-flex flex-row justify-content-center text-center">
+      <h2>Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
+    </div>
+    <div class="d-flex flex-row justify-content-center">
+      <form class="mt-5" action="{% url 'search' %}" method="post">
+          {% csrf_token %}
+          {{jumbotron_search_form.product_name}}
+          {{jumbotron_search_form.media}}
+          <input type="submit" value="Chercher">
+      </form>
+    </div>
   </div>
 </section>
-<section id="about" class="pt-5 pb-5">
+<section id="about" class="pattern pt-5 pb-5">
   <div class="container text-center">
     <h2>Colette et Remy</h2>
     <hr>
@@ -32,7 +38,7 @@
         <p>Colette</p>
       </div>
       <div class="col">
-        <img src="{% static 'img/remy.jpg' %}" alt="Remy" height="150">
+        <img src="{% static 'img/remy.png' %}" alt="Remy" height="150">
         <p>Remy</p>
       </div>
     </div>
@@ -62,7 +68,16 @@
 {% block ajax %}
 <script>
   $(document).ready(function(){
-    $("#id_product_name").autocomplete({
+    $("#jumbotron_product_name").autocomplete({
+      source: "/ajax/recherche/",
+      minLength: 2,
+      open: function(){
+          setTimeout(function () {
+              $('.ui-autocomplete').css('z-index', 99);
+          }, 0);
+      }
+    });
+    $("#nav_product_name").autocomplete({
       source: "/ajax/recherche/",
       minLength: 2,
       open: function(){
