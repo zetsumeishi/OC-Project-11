@@ -1,11 +1,6 @@
 /* Home */
-// .pattern {
-//   background-color: black;
-//   opacity: 50%;
-// }
 
 section#home-jumbotron {
-  //background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("/static/img/home-jumbotron-bg.jpg");
   background-image: url("/static/img/home-jumbotron-bg.jpg");
 
   & h1,
