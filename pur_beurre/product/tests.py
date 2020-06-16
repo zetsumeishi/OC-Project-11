@@ -67,12 +67,3 @@ class ProductFormsTests(TestCase):
 #             reverse("search"), data={"product_name": "Ferrero Rocher"}
 #         )
 #         self.assertEqual(response.status_code, 200)
-#
-#     def test_autocomplete_product(self):
-#         self.selenium.get(self.live_server_url)
-#         product_input = self.selenium.find_element_by_id("id_product_name")
-#         product_input.send_keys(self.search_term)
-#         product_input.send_keys(" ")
-#         self.assertTrue(
-#             self.selenium.find_element_by_xpath('//*[@id="ui-id-1"]')
-#         )

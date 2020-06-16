@@ -64,28 +64,3 @@
   </div>
 </section>
 {% endblock %}
-
-{% block ajax %}
-<script>
-  $(document).ready(function(){
-    $("#jumbotron_product_name").autocomplete({
-      source: "/ajax/recherche/",
-      minLength: 2,
-      open: function(){
-          setTimeout(function () {
-              $('.ui-autocomplete').css('z-index', 99);
-          }, 0);
-      }
-    });
-    $("#nav_product_name").autocomplete({
-      source: "/ajax/recherche/",
-      minLength: 2,
-      open: function(){
-          setTimeout(function () {
-              $('.ui-autocomplete').css('z-index', 99);
-          }, 0);
-      }
-    });
-  });
-</script>
-{% endblock %}
