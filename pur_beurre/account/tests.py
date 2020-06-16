@@ -98,12 +98,6 @@ class AccountViewsTests(LiveServerTestCase):
         self.assertEqual(response.status_code, 200)
         self.client.logout()
 
-    def test_add_favorite(self):
-        pass
-
-    def test_remove_favorite(self):
-        pass
-
     def test_delete_account(self):
         self.client.force_login(self.user)
         response = self.client.get(reverse("delete_account"))
