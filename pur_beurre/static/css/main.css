@@ -285,6 +285,7 @@ section#profile-jumbotron {
 }
 
 #favorites {
+  height: 100vh;
   padding-top: 125px;
 }
 #favorites h2 {

@@ -4,7 +4,7 @@
   <div class="container">
     <a class="navbar-brand" href="{% url 'home' %}">
       <img id="logo" src="{% static 'img/logo_pur_beurre.png'%}" alt="Pur Beurre" width="50" height="50">
-      <span id="nav-title">Pur Beurre</span>
+      <span id="nav-title" class="nav-dark">Pur Beurre</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -18,13 +18,13 @@
       <ul class="navbar-nav">
         {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'profile' %}">
+          <a class="nav-link nav-dark" href="{% url 'profile' %}">
             <i class="fas fa-user"></i>
           </a>
         </li>
         {% else %}
         <li class="nav-item dropdown">
-          <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link nav-dark" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -34,12 +34,12 @@
         </li>
         {% endif %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'favorites' %}">
+          <a class="nav-link nav-dark" href="{% url 'favorites' %}">
             <i class="fas fa-carrot"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'logout' %}">
+          <a class="nav-link nav-dark" href="{% url 'logout' %}">
             <i class="fas fa-sign-out-alt"></i>
           </a>
         </li>

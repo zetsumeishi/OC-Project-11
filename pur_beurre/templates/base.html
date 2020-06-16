@@ -28,9 +28,10 @@
   <script src="{% static 'js/nav-scroll.js' %}" charset="utf-8"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-      if ("{{request.path}}" != "/") {
-        $('.nav-link').addClass('nav-dark');
-        $('#nav-title').addClass('nav-dark');
+      var exception_paths = ["/", "/account/"]
+      if (exception_paths.includes("{{request.path}}")) {
+        $('.nav-link').removeClass('nav-dark');
+        $('#nav-title').removeClass('nav-dark');
       }
     });
   </script>
