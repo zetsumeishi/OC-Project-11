@@ -2,6 +2,10 @@
 
 /* Legal Notice */
 #legal-notice {
+  box-shadow: 0 5px 0 0 $caramel;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
   & h1,
   h2 {
     font-weight: bold;
@@ -49,7 +53,7 @@ nav.navbar {
   }
 
   & a.dropdown-item {
-    color: black;
+    color: $dark-grey;
 
     &:hover {
       color: $biscuit;
