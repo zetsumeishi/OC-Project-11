@@ -236,9 +236,10 @@ section#profile-jumbotron {
   background-image: url("/static/img/profile-jumbotron-bg.jpg");
 }
 
-.card {
+.product-card {
   height: 512px;
 }
+
 .card .card-body {
   height: 100%;
 }
@@ -278,7 +279,7 @@ section#profile-jumbotron {
   text-decoration: none;
   color: #E8A75D;
 }
-.card .remove-link {
+.card .remove-link, .card .favorite-link {
   padding: 3px 6px;
 }
 
