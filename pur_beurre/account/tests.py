@@ -2,8 +2,8 @@ from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.test import LiveServerTestCase
 from django.test.client import Client
-import json
 from django.urls import reverse
+
 from .models import Account
 from product.models import Product
 
