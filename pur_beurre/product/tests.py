@@ -1,10 +1,7 @@
-# import os
-
+from django.test.client import Client
+from django.urls import reverse
 from django.test import TestCase, LiveServerTestCase
-
-# from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-# from django.test.client import Client
-# from django.urls import reverse
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 
 # from selenium import webdriver
 
@@ -51,19 +48,20 @@ class ProductFormsTests(TestCase):
         self.assertFalse(form.is_valid())
 
 
-# class ProductViewsTests(StaticLiveServerTestCase):
-#     fixtures = ["products.json"]
-#
-#     def setUp(self):
-#         self.search_term = "Milka"
-#         self.client = Client()
-#         self.selenium = webdriver.Chrome(os.environ.get("CHROME_DRIVER"))
-#         self.selenium.implicitly_wait(10)
-#         self.selenium.set_window_position(0, 0)
-#         self.selenium.set_window_size(1280, 960)
-#
-#     def test_search(self):
-#         response = self.client.post(
-#             reverse("search"), data={"product_name": "Ferrero Rocher"}
-#         )
-#         self.assertEqual(response.status_code, 200)
+class ProductViewsTests(StaticLiveServerTestCase):
+    fixtures = ["products.json"]
+
+    def setUp(self):
+        self.search_term = "Pralinès"
+        self.client = Client()
+        # self.selenium = webdriver.Chrome(os.environ.get("CHROME_DRIVER"))
+        # self.selenium.implicitly_wait(10)
+        # self.selenium.set_window_position(0, 0)
+        # self.selenium.set_window_size(1280, 960)
+
+    def test_search(self):
+        response = self.client.post(
+            reverse("search"), {"product_name": self.search_term}, follow=True
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.context["substitutes"])
