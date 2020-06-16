@@ -216,20 +216,21 @@ section#about p, section#contact p, section#home-jumbotron p {
 div#profile button {
   height: 2em;
   border-radius: 0;
-  border: none;
+  border: 1px solid #DE9440;
   background-color: #DE9440;
 }
 div#profile button:hover {
   border: 1px solid #DE9440;
-  border-style: inset solid;
   background-color: white;
-  color: #DE9440;
 }
 div#profile button a {
   color: white;
   text-transform: uppercase;
   font-weight: bolder;
   text-decoration: none;
+}
+div#profile button a:hover {
+  color: #DE9440;
 }
 
 section#profile-jumbotron {
