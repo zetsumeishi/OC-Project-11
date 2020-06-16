@@ -1,25 +1,126 @@
 /* Account */
-
 /* Profile */
-
 div#profile {
-  /* Create a components scss file for buttons */
   & button {
     height: 2em;
     border-radius: 0;
     border: none;
     background-color: $caramel;
+
     &:hover {
       border: 1px solid $caramel;
       border-style: inset solid;
       background-color: white;
       color: $caramel;
+    }
+
+    & a {
+      color: white;
+      text-transform: uppercase;
+      font-weight: bolder;
+      text-decoration: none;
+    }
   }
-  & a {
+}
+
+section#profile-jumbotron {
+  background-image: url("/static/img/profile-jumbotron-bg.jpg");
+}
+// Auth
+
+.card {
+  height: 512px;
+  & .card-body {
+    height: 100%;
+  }
+  & input[type="text"],
+  input[type="password"],
+  input[type="email"] {
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    padding-left: 3px;
+
+    &:focus {
+      border: 1px solid $caramel;
+    }
+  }
+
+  & input[type="submit"], .remove-link, .favorite-link {
+    height: 2em;
+    border: none;
+    border-radius: 4px;
+    background-color: $caramel;
     color: white;
     text-transform: uppercase;
     font-weight: bolder;
-    text-decoration: none;
+    transition: cubic-bezier(.47,0,.74,.71) 0.25s;
+    margin-left: -8px;
+
+    &:hover {
+      transition: cubic-bezier(.47,0,.74,.71) 0.25s;
+      background-color: white;
+      border: 1px solid $caramel;
+      color: $caramel;
+    }
+  }
+
+  & a {
+    color: $dark-grey;
+
+    &:hover {
+      text-decoration: none;
+      color: $biscuit;
+    }
+  }
+  & .remove-link {
+    padding: 3px 6px;
   }
 }
+
+#favorites {
+  padding-top: 125px;
+  & h2 {
+    margin-bottom: 50px;
+  }
+}
+
+.product-card-wrapper {
+  padding: 10px;
+}
+.product-thumbnail {
+  max-height: 300px;
+}
+
+.card .card-badge {
+  position: absolute;
+  top: -15px;
+  right: -25px;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  text-align: center;
+  font-weight: bolder;
+  z-index: 99;
+  font-size: 2em;
+  color: white;
+}
+
+.card-badge-dark-green {
+  background-color: $dark-green;
+}
+
+.card-badge-green {
+  background-color: $green;
+}
+
+.card-badge-yellow {
+  background-color: $yellow;
+}
+
+.card-badge-orange {
+  background-color: $orange;
+}
+
+.card-badge-red {
+  background-color: $red;
 }
