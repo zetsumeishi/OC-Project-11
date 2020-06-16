@@ -5,7 +5,8 @@ from product.forms import SearchForm
 
 def home(request):
     context = {}
-    context["search_form"] = SearchForm()
+    context["nav_search_form"] = SearchForm(auto_id="nav_%s")
+    context["jumbotron_search_form"] = SearchForm(auto_id="jumbotron_%s")
     return render(request, "www/home.html", context=context)
 
 
