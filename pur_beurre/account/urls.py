@@ -23,7 +23,7 @@ urlpatterns = [
     path(
         "changer-mot-de-passe/",
         auth_views.PasswordChangeView.as_view(
-            template_name="account/password_change.html"
+            template_name="account/password_change.html", success_url="/",
         ),
         name="password_change",
     ),
@@ -33,33 +33,5 @@ urlpatterns = [
             template_name="account/password_change_done.html"
         ),
         name="password_change_done",
-    ),
-    path(
-        "reinitialiser-mot-de-passe/",
-        auth_views.PasswordResetView.as_view(
-            template_name="account/password_reset.html"
-        ),
-        name="password_reset",
-    ),
-    path(
-        "mot-de-passe-reinitialise/",
-        auth_views.PasswordResetDoneView.as_view(
-            template_name="account/password_reset_done.html"
-        ),
-        name="password_reset_done",
-    ),
-    path(
-        "confirmation-reinitialisation/<uidb64>/<token>/",
-        auth_views.PasswordResetConfirmView.as_view(
-            template_name="account/password_reset_confirm.html"
-        ),
-        name="password_reset_confirm",
-    ),
-    path(
-        "reinitialisation-terminee/",
-        auth_views.PasswordResetCompleteView.as_view(
-            template_name="account/password_reset_complete.html"
-        ),
-        name="password_reset_complete",
     ),
 ]
