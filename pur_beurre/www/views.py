@@ -12,5 +12,5 @@ def home(request):
 
 def legal_notice(request):
     context = {}
-    context["search_form"] = SearchForm()
+    context["nav_search_form"] = SearchForm(auto_id="nav_%s")
     return render(request, "www/legal-notice.html", context=context)

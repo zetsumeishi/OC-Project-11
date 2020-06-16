@@ -6,6 +6,7 @@ from .forms import SearchForm
 
 def search(request):
     context = {}
+    context["nav_search_form"] = SearchForm(auto_id="nav_%s")
     if request.method == "POST":
         form = SearchForm(request.POST)
         if form.is_valid():

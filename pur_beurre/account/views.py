@@ -10,10 +10,12 @@ from django.contrib.auth import (
 from .models import Account
 from .forms import AccountCreationForm
 from product.models import Product
+from product.forms import SearchForm
 
 
 def signup(request):
     context = {}
+    context["nav_search_form"] = SearchForm(auto_id="nav_%s")
     if request.method == "POST":
         form = AccountCreationForm(request.POST)
         if form.is_valid():
@@ -32,6 +34,7 @@ def signup(request):
 @login_required
 def profile(request):
     context = {}
+    context["nav_search_form"] = SearchForm(auto_id="nav_%s")
     context["password_form"] = PasswordChangeForm(request.user)
     return render(request, "account/profile.html", context=context)
 
@@ -39,6 +42,7 @@ def profile(request):
 @login_required
 def favorites(request):
     context = {}
+    context["nav_search_form"] = SearchForm(auto_id="nav_%s")
     user = request.user
     context["favorites"] = user.get_favorites()
     return render(request, "account/favorites.html", context=context)
