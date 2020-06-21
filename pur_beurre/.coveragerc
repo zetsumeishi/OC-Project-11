@@ -2,8 +2,3 @@
 source = .
 omit =
     home
-    pur_beurre/asgi.py
-    pur_beurre/wsgi.py
-    manage.py
-    */tests.py
-    */constants.py
