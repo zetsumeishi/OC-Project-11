@@ -24,7 +24,7 @@ Mes Favoris
                 <p id="{{ favorite.id }}">{{ favorite.product_name }}</p>
               </div>
               <div class="d-flex flex-row justify-content-center">
-                <p><a class="remove-link" href="{% url 'remove_favorite' %}">Retirer</a></p>
+                <p><a class="remove-link" href="{% url 'account:remove_favorite' %}">Retirer</a></p>
               </div>
             </div>
             {% if favorite.nutriscore_grade == "a" %}
@@ -61,7 +61,7 @@ Mes Favoris
       $('.remove-link').click(function(event) {
         event.preventDefault();
         $.ajax({
-          url: "{% url 'remove_favorite' %}",
+          url: "{% url 'account:remove_favorite' %}",
           type: "GET",
           data: {
             'product_id': this.parentElement.parentElement.previousElementSibling.children[0].id,

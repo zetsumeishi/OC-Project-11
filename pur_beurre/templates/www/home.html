@@ -15,7 +15,7 @@ Accueil
       <h2>Trouvez un produit de substitution pour ceux que vous consommez tous les jours.</h2>
     </div>
     <div class="d-flex flex-row justify-content-center">
-      <form class="mt-5" action="{% url 'search' %}" method="post">
+      <form class="mt-5" action="{% url 'product:search' %}" method="post">
         {% csrf_token %}
         {{jumbotron_search_form.product_name}}
         {{jumbotron_search_form.media}}

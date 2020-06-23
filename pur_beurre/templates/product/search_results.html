@@ -19,10 +19,10 @@ Resultats
             </div>
             <div class="card-footer">
               <div class="d-flex flex-row justify-content-center">
-                <p id="{{ substitute.id }}">{{ substitute.product_name }}</p>
+                <p id="{{ substitute.id }}"><a href="{% url 'product:single' substitute.product_name %}">{{ substitute.product_name }}</a></p>
               </div>
               <div class="d-flex flex-row justify-content-center">
-                <p><a class="favorite-link" href="{% url 'add_favorite' %}">Sauvegarder</a></p>
+                <p><a class="favorite-link" href="{% url 'account:add_favorite' %}">Sauvegarder</a></p>
               </div>
             </div>
             {% if substitute.nutriscore_grade == "a" %}
@@ -57,7 +57,7 @@ Resultats
       $('.favorite-link').click(function(event) {
         event.preventDefault();
         $.ajax({
-          url: "{% url 'add_favorite' %}",
+          url: "{% url 'account:add_favorite' %}",
           type: "GET",
           data: {
             'product_id': this.parentElement.parentElement.previousElementSibling.children[0].id,

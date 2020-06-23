@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand ml-5" href="{% url 'home' %}">
+    <a class="navbar-brand ml-5" href="{% url 'www:home' %}">
       <img id="logo" src="{% static 'img/logo_pur_beurre.png'%}" alt="Pur Beurre" width="50" height="50">
       <span id="nav-title" class="nav-dark">Pur Beurre</span>
     </a>
@@ -11,14 +11,14 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="mr-3 ml-auto" action="{% url 'search' %}" method="post">
+      <form class="mr-3 ml-auto" action="{% url 'product:search' %}" method="post">
         {% csrf_token %}
         {{ nav_search_form.product_name }}{{ nav_search_form.media }}
       </form>
       <ul class="navbar-nav mr-5">
         {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link nav-dark" href="{% url 'profile' %}">
+          <a class="nav-link nav-dark" href="{% url 'account:profile' %}">
             <i class="fas fa-user"></i>
           </a>
         </li>
@@ -28,19 +28,19 @@
             <i class="fas fa-user"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'signup' %}">Inscription</a>
-            <a class="dropdown-item" href="{% url 'login' %}">Connexion</a>
+            <a class="dropdown-item" href="{% url 'account:signup' %}">Inscription</a>
+            <a class="dropdown-item" href="{% url 'account:login' %}">Connexion</a>
           </div>
         </li>
         {% endif %}
         <li class="nav-item">
-          <a class="nav-link nav-dark" href="{% url 'favorites' %}">
+          <a class="nav-link nav-dark" href="{% url 'account:favorites' %}">
             <i class="fas fa-carrot"></i>
           </a>
         </li>
         {% if request.user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link nav-dark" href="{% url 'logout' %}">
+          <a class="nav-link nav-dark" href="{% url 'account:logout' %}">
             <i class="fas fa-sign-out-alt"></i>
           </a>
         </li>

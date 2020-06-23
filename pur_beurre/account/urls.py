@@ -3,6 +3,8 @@ from django.contrib.auth import views as auth_views
 
 from . import views
 
+app_name = "account"
+
 urlpatterns = [
     path("", views.profile, name="profile"),
     path("inscription/", views.signup, name="signup"),
