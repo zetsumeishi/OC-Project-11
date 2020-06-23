@@ -21,11 +21,9 @@ Resultats
               <div class="d-flex flex-row justify-content-center">
                 <p id="{{ substitute.id }}">{{ substitute.product_name }}</p>
               </div>
-              {% if request.user.is_authenticated %}
               <div class="d-flex flex-row justify-content-center">
                 <p><a class="favorite-link" href="{% url 'add_favorite' %}">Sauvegarder</a></p>
               </div>
-              {% endif %}
             </div>
             {% if substitute.nutriscore_grade == "a" %}
             <div class="card-badge card-badge-dark-green">{{ substitute.nutriscore_grade.capitalize }}</div>
@@ -63,6 +61,11 @@ Resultats
           type: "GET",
           data: {
             'product_id': this.parentElement.parentElement.previousElementSibling.children[0].id,
+          },
+          success: function(json) {
+            if (!json.authenticated) {
+              window.location.replace("/mon-compte/connexion");
+            }
           },
         });
       });
