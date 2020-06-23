@@ -17,6 +17,7 @@ install:
 
 before_script:
   - cd pur_beurre/
+  - export CHROME_DRIVER="/home/travis/build/zetsumeishi/OC-Project-8/pur_beurre/chromedriver"
 
 script:
   - python manage.py makemigrations
