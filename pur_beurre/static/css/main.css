@@ -71,9 +71,6 @@ nav.navbar {
   height: 80px;
   padding: 0;
 }
-nav.navbar #navbarSupportedContent {
-  height: 100vh;
-}
 nav.navbar #nav-title {
   transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.75s;
   font-size: 1.2em;
