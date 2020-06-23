@@ -1,8 +1,13 @@
+import os
+
 from django.test import TestCase
 from django.contrib.auth import get_user_model
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.test.client import Client
 from django.urls import reverse
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 from .models import Account
 from product.models import Product
@@ -56,7 +61,7 @@ class AccountModelsTests(TestCase):
         self.assertTrue(self.user.get_favorites())
 
 
-class AccountViewsTests(LiveServerTestCase):
+class AccountViewsTests(StaticLiveServerTestCase):
     fixtures = ["accounts.json", "products.json"]
 
     def setUp(self):
@@ -88,6 +93,33 @@ class AccountViewsTests(LiveServerTestCase):
         self.assertEqual(response.status_code, 200)
         self.client.logout()
 
+    def test_add_favorite(self):
+        self.client.force_login(self.user)
+        response = self.client.get(
+            reverse("add_favorite"),
+            {"product_id": 1},
+            HTTP_X_REQUESTED_WITH="XMLHttpRequest",
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(self.user.favorites.all())
+        self.client.logout()
+
+    def test_remove_favorite(self):
+        self.client.force_login(self.user)
+        response = self.client.get(
+            reverse("add_favorite"),
+            {"product_id": 1},
+            HTTP_X_REQUESTED_WITH="XMLHttpRequest",
+        )
+        response = self.client.get(
+            reverse("remove_favorite"),
+            {"product_id": 1},
+            HTTP_X_REQUESTED_WITH="XMLHttpRequest",
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(self.user.favorites.all())
+        self.client.logout()
+
     def test_favorites(self):
         response = self.client.get(reverse("favorites"))
         self.assertRedirects(
@@ -104,3 +136,17 @@ class AccountViewsTests(LiveServerTestCase):
         self.assertRedirects(response, "/")
         qs = Account.objects.filter(email="olivier.loustaunau@gmail.com")
         self.assertFalse(qs)
+        self.client.logout()
+
+    def test_selenium_login(self):
+        self.selenium = webdriver.Chrome(os.environ.get("CHROME_DRIVER"))
+        self.selenium.implicitly_wait(10)
+        url = self.live_server_url + reverse("login")
+        self.selenium.get(url)
+        self.selenium.find_element_by_id("id_username").send_keys(
+            "olivier.loustaunau@gmail.com"
+        )
+        self.selenium.find_element_by_id("id_password").send_keys(
+            "password" + Keys.RETURN
+        )
+        self.selenium.close()

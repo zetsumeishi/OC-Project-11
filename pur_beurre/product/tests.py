@@ -1,9 +1,6 @@
 from django.test.client import Client
 from django.urls import reverse
 from django.test import TestCase, LiveServerTestCase
-from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-
-# from selenium import webdriver
 
 from .models import Product
 from .forms import SearchForm
@@ -48,18 +45,16 @@ class ProductFormsTests(TestCase):
         self.assertFalse(form.is_valid())
 
 
-class ProductViewsTests(StaticLiveServerTestCase):
+class ProductViewsTests(LiveServerTestCase):
     fixtures = ["products.json"]
 
     def setUp(self):
         self.search_term = "Pralinès"
         self.client = Client()
-        # self.selenium = webdriver.Chrome(os.environ.get("CHROME_DRIVER"))
-        # self.selenium.implicitly_wait(10)
-        # self.selenium.set_window_position(0, 0)
-        # self.selenium.set_window_size(1280, 960)
 
     def test_search(self):
+        response = self.client.get(reverse("search"))
+        self.assertRedirects(response, "/")
         response = self.client.post(
             reverse("search"), {"product_name": self.search_term}, follow=True
         )
