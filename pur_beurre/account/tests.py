@@ -7,6 +7,7 @@ from django.urls import reverse
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 
 from .models import Account
 from product.models import Product
@@ -138,7 +139,7 @@ class AccountViewsTests(StaticLiveServerTestCase):
         self.client.logout()
 
     def test_selenium_login(self):
-        chrome_options = webdriver.chrome_options()
+        chrome_options = Options()
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-setuid-sandbox")
         chrome_options.add_argument("--remote-debugging-port=9222")
