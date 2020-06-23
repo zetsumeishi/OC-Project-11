@@ -18,16 +18,11 @@
 
 /* Navbar */
 
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-
 nav.navbar {
   transition: cubic-bezier(.47,0,.74,.71) 0.75s;
   height: 80px;
   padding: 0;
-  & #navbarSupportedContent {}
+
   & #nav-title {
     transition: cubic-bezier(.47,0,.74,.71) 0.75s;
     font-size: 1.2em;
@@ -106,6 +101,9 @@ nav.affix {
   color: $dark-grey!important;
   transition: cubic-bezier(.47,0,.74,.71) 0.2s;
 
+  & .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
   &:hover {
     color: $biscuit!important;
   }
