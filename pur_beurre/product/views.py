@@ -21,3 +21,12 @@ def search(request):
                 request, "product/search_results.html", context=context
             )
     return HttpResponseRedirect("/")
+
+
+def single(request, product_name):
+    context = {}
+    context["nav_search_form"] = SearchForm(auto_id="nav_%s")
+    context["product"] = Product.objects.filter(
+        product_name__iexact=product_name
+    )[0]
+    return render(request, "product/single.html", context=context)

@@ -323,6 +323,17 @@ section#profile-jumbotron {
   color: white;
 }
 
+.card-badge-single {
+  display: inline-block;
+  font-size: 2em;
+  color: white;
+  border-radius: 100%;
+  text-align: center;
+  font-weight: bolder;
+  height: 40px;
+  width: 40px;
+}
+
 .card-badge-dark-green {
   background-color: #00823F;
 }
@@ -392,6 +403,40 @@ section#profile-jumbotron {
     padding: 20px 20px;
     background-color: white;
   }
+}
+#single-jumbotron {
+  max-height: 400px;
+}
+
+#single-container {
+  padding-top: 50px;
+}
+#single-container > .row {
+  text-align: center;
+  font-size: 1.2em;
+}
+#single-container #nutritional-single {
+  text-align: left;
+}
+
+.custom-button {
+  height: 2em;
+  border: none;
+  border-radius: 4px;
+  background-color: #DE9440;
+  color: white;
+  padding: 0 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bolder;
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.25s;
+}
+.custom-button:hover {
+  transition: cubic-bezier(0.47, 0, 0.74, 0.71) 0.25s;
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #DE9440;
+  color: #DE9440;
 }
 
 /*# sourceMappingURL=main.css.map */

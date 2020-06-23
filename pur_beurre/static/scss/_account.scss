@@ -109,6 +109,17 @@ section#profile-jumbotron {
   color: white;
 }
 
+.card-badge-single {
+  display: inline-block;
+  font-size: 2em;
+  color: white;
+  border-radius: 100%;
+  text-align: center;
+  font-weight: bolder;
+  height: 40px;
+  width: 40px;
+}
+
 .card-badge-dark-green {
   background-color: $dark-green;
 }
