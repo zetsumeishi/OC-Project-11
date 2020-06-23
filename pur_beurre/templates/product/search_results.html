@@ -5,6 +5,11 @@ Resultats
 {% endblock %}
 
 {% block content %}
+<section id="single-jumbotron" class="jumbotron jumbotron-fluid d-flex align-items-center" style="background-image: url('{{ product.image_url }}');background-size: contain;background-repeat: no-repeat;">
+  <div class="container text-center">
+    <h1>{{ product.product_name }}</h1>
+  </div>
+</section>
 <div id="favorites" class="pattern-bg">
   <div class="container">
     {% if substitutes %}
