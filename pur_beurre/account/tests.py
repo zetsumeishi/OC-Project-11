@@ -1,5 +1,4 @@
-import os
-
+from django.conf import settings
 from django.test import TestCase
 from django.contrib.auth import get_user_model
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -139,7 +138,7 @@ class AccountViewsTests(StaticLiveServerTestCase):
         self.client.logout()
 
     def test_selenium_login(self):
-        self.selenium = webdriver.Chrome(os.environ.get("CHROME_DRIVER"))
+        self.selenium = webdriver.Chrome(settings.CHROME_DRIVER)
         self.selenium.implicitly_wait(10)
         url = self.live_server_url + reverse("login")
         self.selenium.get(url)
