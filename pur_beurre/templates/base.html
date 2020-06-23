@@ -33,7 +33,7 @@
         $('svg.fa-carrot').parent().append('<span class="mobile-link">Mes aliments</span>');
         $('svg.fa-sign-out-alt').parent().append('<span class="mobile-link">Se deconnecter</span>');
       }
-      var exception_paths = ["/", "/account/"]
+      var exception_paths = ["/", "/mon-compte/"]
       if (exception_paths.includes("{{request.path}}")) {
         $('.nav-link').removeClass('nav-dark');
         $('#nav-title').removeClass('nav-dark');

@@ -87,7 +87,9 @@ class AccountViewsTests(StaticLiveServerTestCase):
 
     def test_profile(self):
         response = self.client.get(reverse("profile"))
-        self.assertRedirects(response, "/account/connexion/?next=/account/")
+        self.assertRedirects(
+            response, "/mon-compte/connexion/?next=/mon-compte/"
+        )
         self.client.force_login(self.user)
         response = self.client.get(reverse("profile"))
         self.assertEqual(response.status_code, 200)
@@ -123,7 +125,7 @@ class AccountViewsTests(StaticLiveServerTestCase):
     def test_favorites(self):
         response = self.client.get(reverse("favorites"))
         self.assertRedirects(
-            response, "/account/connexion/?next=/account/mes-favoris/"
+            response, "/mon-compte/connexion/?next=/mon-compte/mes-favoris/"
         )
         self.client.force_login(self.user)
         response = self.client.get(reverse("favorites"))
