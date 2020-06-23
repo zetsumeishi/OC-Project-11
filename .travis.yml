@@ -19,7 +19,7 @@ script:
   - python manage.py migrate
   - python manage.py format_csv
   - python manage.py import_csv
-  - coverage run -m manage test
+  - coverage run -m manage test --settings="pur_beurre.test_settings"
 
 after_success:
   - coveralls
