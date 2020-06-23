@@ -138,7 +138,19 @@ class AccountViewsTests(StaticLiveServerTestCase):
         self.client.logout()
 
     def test_selenium_login(self):
-        self.selenium = webdriver.Chrome(settings.CHROME_DRIVER)
+        chrome_options = webdriver.chrome_options()
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--disable-setuid-sandbox")
+        chrome_options.add_argument("--remote-debugging-port=9222")
+        chrome_options.add_argument("--disable-dev-shm-using")
+        chrome_options.add_argument("--disable-extensions")
+        chrome_options.add_argument("start-maximized")
+        chrome_options.add_argument("disable-infobars")
+        chrome_options.add_argument("--headless")
+        self.selenium = webdriver.Chrome(
+            executable_path=settings.CHROME_DRIVER,
+            chrome_options=chrome_options,
+        )
         self.selenium.implicitly_wait(10)
         url = self.live_server_url + reverse("login")
         self.selenium.get(url)
