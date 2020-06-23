@@ -224,7 +224,6 @@ section#about p, section#contact p, section#home-jumbotron p {
 /* Account */
 /* Profile */
 div#profile button {
-  height: 2em;
   border-radius: 0;
   border: 1px solid #DE9440;
   background-color: #DE9440;
@@ -344,6 +343,11 @@ section#profile-jumbotron {
   background-color: #E73C08;
 }
 
+@media (max-width: 576px) {
+  #jumbotron_product_name {
+    max-width: 180px;
+  }
+}
 @media (max-width: 991.98px) {
   nav.navbar {
     background-color: white;
