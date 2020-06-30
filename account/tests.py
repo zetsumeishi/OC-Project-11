@@ -140,7 +140,7 @@ class AccountViewsTests(StaticLiveServerTestCase):
         self.assertFalse(qs)
         self.client.logout()
 
-    def test_selenium_login(self):
+    def test_selenium_add_favorite(self):
         chrome_options = Options()
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-setuid-sandbox")
@@ -150,17 +150,17 @@ class AccountViewsTests(StaticLiveServerTestCase):
         chrome_options.add_argument("start-maximized")
         chrome_options.add_argument("disable-infobars")
         chrome_options.add_argument("--headless")
+        self.client.force_login(self.user)
         self.selenium = webdriver.Chrome(
             executable_path=settings.CHROME_DRIVER,
             chrome_options=chrome_options,
         )
-        self.selenium.implicitly_wait(10)
-        url = self.live_server_url + reverse("account:login")
+        self.selenium.implicitly_wait(5)
+        url = self.live_server_url + reverse("www:home")
         self.selenium.get(url)
-        self.selenium.find_element_by_id("id_username").send_keys(
-            "olivier.loustaunau@gmail.com"
+        self.selenium.find_element_by_id("jumbotron_product_name").send_keys(
+            "Milka Daim" + Keys.RETURN
         )
-        self.selenium.find_element_by_id("id_password").send_keys(
-            "password" + Keys.RETURN
-        )
+        self.selenium.find_element_by_class_name("favorite-link").click()
+        self.assertTrue(self.user.favorites.all())
         self.selenium.close()

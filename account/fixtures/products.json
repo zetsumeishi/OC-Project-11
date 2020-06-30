@@ -38,13 +38,13 @@
          "product_name":"Milka - Crispello - Saveur Vanille",
          "url":"https://fr.openfoodfacts.org/produit/7622300690670",
          "image_url":"https://static.openfoodfacts.org/images/products/762/230/069/0670/front_fr.10.400.jpg",
-         "nova_group":"4",
-         "nutriscore_grade":"e",
+         "nova_group":"2",
+         "nutriscore_grade":"b",
          "saturated_fat_100g":17.500,
          "fat_100g":35.000,
          "salt_100g":0.381,
          "sugars_100g":40.500,
-         "category":"confectioneries"
+         "category":"milk-chocolates"
       }
    },
    {
