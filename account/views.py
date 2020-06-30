@@ -1,4 +1,3 @@
-from django.urls import reverse
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.forms import PasswordChangeForm
@@ -50,8 +49,6 @@ def favorites(request):
 
 
 def add_favorite(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
     if request.is_ajax():
         user = request.user
         product_id = request.GET.get("product_id", "")
