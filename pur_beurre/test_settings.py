@@ -21,7 +21,7 @@ CHROME_DRIVER = os.environ.get("CHROME_DRIVER")
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "1gkvi90rc#$_)!%nrpx9j+xae22%c6))l0j(ei3)ie_!am!hwk"
+PUR_BEURRE_KEY = os.environ.get("PUR_BEURRE_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
