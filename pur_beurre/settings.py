@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("PUR_BEURRE_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [".herokuapp.com"]
+ALLOWED_HOSTS = ["pur-beurre-z.herokuapp.com"]
 
 
 # Application definition
