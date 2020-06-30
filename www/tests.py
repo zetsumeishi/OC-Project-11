@@ -8,11 +8,11 @@ class WwwViewsTests(TestCase):
         self.client = Client()
 
     def test_home(self):
-        response = self.client.get(reverse("home"))
+        response = self.client.get(reverse("www:home"))
         self.assertEqual(response.status_code, 200)
 
     def test_legal_notice(self):
-        response = self.client.get(reverse("legal-notice"))
+        response = self.client.get(reverse("www:legal-notice"))
         self.assertEqual(response.status_code, 200)
 
     def tearDown(self):

@@ -53,10 +53,12 @@ class ProductViewsTests(LiveServerTestCase):
         self.client = Client()
 
     def test_search(self):
-        response = self.client.get(reverse("search"))
+        response = self.client.get(reverse("product:search"))
         self.assertRedirects(response, "/")
         response = self.client.post(
-            reverse("search"), {"product_name": self.search_term}, follow=True
+            reverse("product:search"),
+            {"product_name": self.search_term},
+            follow=True,
         )
         self.assertEqual(response.status_code, 200)
         self.assertTrue(response.context["substitutes"])

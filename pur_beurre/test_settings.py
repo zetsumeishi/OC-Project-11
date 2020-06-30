@@ -128,8 +128,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-
 # CSV files
 
 RAW_CSV = BASE_DIR + "/csv/openfoodfacts_raw.csv"

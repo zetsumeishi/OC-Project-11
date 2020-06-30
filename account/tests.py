@@ -76,9 +76,9 @@ class AccountViewsTests(StaticLiveServerTestCase):
             "password2": "password",
             "first_name": "user",
         }
-        response = self.client.post(reverse("signup"), data=form_data)
+        response = self.client.post(reverse("account:signup"), data=form_data)
         self.assertRedirects(response, "/")
-        response = self.client.get(reverse("signup"))
+        response = self.client.get(reverse("account:signup"))
         self.assertEqual(
             list(response.context[-1]["form"].fields.keys()),
             ["email", "first_name", "password1", "password2"],
@@ -86,19 +86,19 @@ class AccountViewsTests(StaticLiveServerTestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_profile(self):
-        response = self.client.get(reverse("profile"))
+        response = self.client.get(reverse("account:profile"))
         self.assertRedirects(
             response, "/mon-compte/connexion/?next=/mon-compte/"
         )
         self.client.force_login(self.user)
-        response = self.client.get(reverse("profile"))
+        response = self.client.get(reverse("account:profile"))
         self.assertEqual(response.status_code, 200)
         self.client.logout()
 
     def test_add_favorite(self):
         self.client.force_login(self.user)
         response = self.client.get(
-            reverse("add_favorite"),
+            reverse("account:add_favorite"),
             {"product_id": 1},
             HTTP_X_REQUESTED_WITH="XMLHttpRequest",
         )
@@ -109,12 +109,12 @@ class AccountViewsTests(StaticLiveServerTestCase):
     def test_remove_favorite(self):
         self.client.force_login(self.user)
         response = self.client.get(
-            reverse("add_favorite"),
+            reverse("account:add_favorite"),
             {"product_id": 1},
             HTTP_X_REQUESTED_WITH="XMLHttpRequest",
         )
         response = self.client.get(
-            reverse("remove_favorite"),
+            reverse("account:remove_favorite"),
             {"product_id": 1},
             HTTP_X_REQUESTED_WITH="XMLHttpRequest",
         )
@@ -123,18 +123,18 @@ class AccountViewsTests(StaticLiveServerTestCase):
         self.client.logout()
 
     def test_favorites(self):
-        response = self.client.get(reverse("favorites"))
+        response = self.client.get(reverse("account:favorites"))
         self.assertRedirects(
             response, "/mon-compte/connexion/?next=/mon-compte/mes-favoris/"
         )
         self.client.force_login(self.user)
-        response = self.client.get(reverse("favorites"))
+        response = self.client.get(reverse("account:favorites"))
         self.assertEqual(response.status_code, 200)
         self.client.logout()
 
     def test_delete_account(self):
         self.client.force_login(self.user)
-        response = self.client.get(reverse("delete_account"))
+        response = self.client.get(reverse("account:delete_account"))
         self.assertRedirects(response, "/")
         qs = Account.objects.filter(email="olivier.loustaunau@gmail.com")
         self.assertFalse(qs)
@@ -155,7 +155,7 @@ class AccountViewsTests(StaticLiveServerTestCase):
             chrome_options=chrome_options,
         )
         self.selenium.implicitly_wait(10)
-        url = self.live_server_url + reverse("login")
+        url = self.live_server_url + reverse("account:login")
         self.selenium.get(url)
         self.selenium.find_element_by_id("id_username").send_keys(
             "olivier.loustaunau@gmail.com"
