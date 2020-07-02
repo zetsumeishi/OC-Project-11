@@ -9,6 +9,7 @@ Mes Favoris
 
 {% block content %}
 <div id="favorites" class="pattern-bg">
+  <h2 class="text-center">Mes aliments</h2>
   <div class="container">
     {% if favorites %}
     <div class="row">
@@ -43,34 +44,35 @@ Mes Favoris
       </div>
       {% if forloop.counter|divisibleby:"4" %}
     </div>
-    <div class="row">
+    <div class="row h-100">
       {% endif %}
       {% endfor %}
       {% else %}
-      <div class="justify-content-center align-items-center p-5 text-center">
+      <div class="justify-content-center align-items-center p-5 text-center h-100">
         <p>Vous n'avez pas encore ajouté de produit.</p>
       </div>
       {% endif %}
     </div>
   </div>
-  {% endblock %}
+</div>
+{% endblock %}
 
-  {% block ajax %}
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('.remove-link').click(function(event) {
-        event.preventDefault();
-        $.ajax({
-          url: "{% url 'account:remove_favorite' %}",
-          type: "GET",
-          data: {
-            'product_id': this.parentElement.parentElement.previousElementSibling.children[0].id,
-          },
-          success: function(res) {
-            $('#' + res['id']).parent().parent().parent().parent().parent().remove();
-          }
-        });
+{% block ajax %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.remove-link').click(function(event) {
+      event.preventDefault();
+      $.ajax({
+        url: "{% url 'account:remove_favorite' %}",
+        type: "GET",
+        data: {
+          'product_id': this.parentElement.parentElement.previousElementSibling.children[0].id,
+        },
+        success: function(res) {
+          $('#' + res['id']).parent().parent().parent().parent().parent().remove();
+        }
       });
     });
-  </script>
-  {% endblock %}
+  });
+</script>
+{% endblock %}

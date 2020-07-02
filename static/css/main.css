@@ -292,7 +292,6 @@ section#profile-jumbotron {
 }
 
 #favorites {
-  height: 100vh;
   padding-top: 125px;
 }
 #favorites h2 {
@@ -435,6 +434,10 @@ section#profile-jumbotron {
   background-color: white;
   border: 1px solid #DE9440;
   color: #DE9440;
+}
+
+#search-results h2 {
+  margin-bottom: 50px;
 }
 
 /*# sourceMappingURL=main.css.map */

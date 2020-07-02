@@ -92,3 +92,9 @@ h5 {
     color: $caramel;
   }
 }
+
+#search-results {
+  & h2 {
+    margin-bottom: 50px;
+  }
+}
