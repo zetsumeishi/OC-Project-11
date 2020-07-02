@@ -33,6 +33,9 @@ section#profile-jumbotron {
 }
 
 .card {
+  & .card-footer {
+    background-color: white !important;
+  }
   & .card-body {
     height: 100%;
   }
