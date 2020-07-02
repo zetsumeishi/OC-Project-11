@@ -33,10 +33,17 @@
         $('svg.fa-carrot').parent().append('<span class="mobile-link">Mes aliments</span>');
         $('svg.fa-sign-out-alt').parent().append('<span class="mobile-link">Se deconnecter</span>');
       }
-      var exception_paths = ["/", "/mon-compte/"]
+      var exception_paths = ["/", "/mon-compte/"];
       if (exception_paths.includes("{{request.path}}")) {
         $('.nav-link').removeClass('nav-dark');
         $('#nav-title').removeClass('nav-dark');
+      }
+      var i;
+      var jumb_paths = ["/recherche/", "/aliment/"];
+      for (i = 0; i < jumb_paths.length; i++) {
+        if ("{{request.path}}".includes(jumb_paths[i])) {
+          $('.navbar').css("background-color", "white");
+        }
       }
     });
   </script>
