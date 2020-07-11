@@ -403,6 +403,7 @@ section#profile-jumbotron {
 }
 #single-jumbotron {
   max-height: 400px;
+  background-color: #333;
 }
 
 #single-container {
