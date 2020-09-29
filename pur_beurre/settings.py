@@ -87,17 +87,6 @@ WSGI_APPLICATION = "pur_beurre.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql_psycopg2",
-#         "NAME": "purbeurre",
-#         "USER": "zetsumeishi",
-#         "PASSWORD": os.environ.get("DB_PWD"),
-#         "HOST": "",
-#         "PORT": "",
-#     }
-# }
-
 DATABASES = {}
 DATABASES["default"] = dj_database_url.config(conn_max_age=600)
 
