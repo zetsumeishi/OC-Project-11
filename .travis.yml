@@ -9,7 +9,7 @@ install:
 
 before_script:
   - sudo apt install google-chrome-stable
-  - wget https://chromedriver.storage.googleapis.com/73.0.3683.68/chromedriver_linux64.zip
+  - wget https://chromedriver.storage.googleapis.com/72.0.3626.69/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip -d /home/travis/virtualenv/python3.8.0/bin/
   - export CHROME_DRIVER="chromedriver"
 
