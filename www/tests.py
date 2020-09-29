@@ -49,6 +49,5 @@ class SendGridTests(TestCase):
             subject='Sending with Twilio SendGrid is Fun',
             html_content='Test content'
         )
-        import ipdb; ipdb.set_trace()
         response = sg.send(message)
         self.assertEqual(response.status_code, 202)
