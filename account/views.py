@@ -1,6 +1,6 @@
 from django.http import JsonResponse
-from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.forms import PasswordChangeForm
+from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import (
     authenticate,
@@ -11,6 +11,13 @@ from .models import Account
 from .forms import AccountCreationForm
 from product.models import Product
 from product.forms import SearchForm
+
+
+def ajax_is_authenticated(request):
+    if request.user.is_authenticated:
+        return {"authenticated": True}
+    else:
+        return {"authenticated": False}
 
 
 def signup(request):
@@ -50,21 +57,29 @@ def favorites(request):
 
 def add_favorite(request):
     if request.is_ajax():
+        response = ajax_is_authenticated(request)
+        if not response["authenticated"]:
+            return JsonResponse(response, status=403)
         user = request.user
         product_id = request.GET.get("product_id", "")
         product = Product.objects.get(pk=int(product_id))
         user.favorites.add(product)
+        return JsonResponse(response, status=200)
     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 
-@login_required
 def remove_favorite(request):
     if request.is_ajax():
+        response = ajax_is_authenticated(request)
+        if not response["authenticated"]:
+            return JsonResponse(response, status=403)
         user = request.user
         product_id = request.GET.get("product_id", "")
         product = Product.objects.get(pk=int(product_id))
         user.favorites.remove(product)
-        return JsonResponse({"id": str(product_id)}, status=200)
+        response.update({"id": str(product_id)})
+        return JsonResponse(response, status=200)
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 
 @login_required

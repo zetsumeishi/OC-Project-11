@@ -71,9 +71,9 @@ Resultats
             'product_id': this.parentElement.parentElement.previousElementSibling.children[0].id,
           },
           success: function(json) {
-            if (!json.authenticated) {
-              window.location.replace("/mon-compte/connexion");
-            }
+          },
+          error: function(json) {
+            window.location.replace("/mon-compte/connexion");
           },
         });
       });
