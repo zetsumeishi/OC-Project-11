@@ -148,7 +148,7 @@ LOGIN_URL = "/mon-compte/connexion/"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 AUTH_USER_MODEL = "account.Account"
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 
 LOGGING = {
     "version": 1,

@@ -60,8 +60,13 @@ Accueil
           <p>05 45 13 37 42</p>
         </div>
         <div class="col-sm-12 col-md-6">
-          <i class="fa fa-envelope"></i>
-          <a class="d-block" href="mailto:contact@purbeurre.fr">contact@purbeurre.io</a>
+          <form action="{% url 'www:send-email' %}" method="post">
+              {% csrf_token %}
+              {{ contact_form.from_email }}
+              {{ contact_form.subject }}
+              {{ contact_form.content }}
+              <button type="submit">Send</button>
+          </form>
         </div>
       </div>
     </div>

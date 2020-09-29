@@ -132,3 +132,4 @@ dmypy.json
 
 # CSS map
 *css.map
+sendgrid.env
