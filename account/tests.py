@@ -102,7 +102,7 @@ class AccountViewsTests(StaticLiveServerTestCase):
             {"product_id": 1},
             HTTP_X_REQUESTED_WITH="XMLHttpRequest",
         )
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
         self.assertTrue(self.user.favorites.all())
         self.client.logout()
 
