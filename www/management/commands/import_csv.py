@@ -22,14 +22,14 @@ class Command(BaseCommand):
                         if row[field].isdigit():
                             product_data[field] = Decimal(row[field])
                         elif field == "categories_tags":
-                            if ":" in row[field]:
-                                product_data["category"] = row[field].split(
-                                    ","
-                                )[-1][3:]
-                            else:
-                                product_data["category"] = row[field].split(
-                                    ","
-                                )[-1]
+                            categories = row[field].split(",")
+                            product_data["first_category"] = categories.pop()[
+                                3:
+                            ]
+                            if categories:
+                                product_data[
+                                    "second_category"
+                                ] = categories.pop()[3:]
                         else:
                             product_data[field] = row[field]
                     products.append(Product(**product_data))

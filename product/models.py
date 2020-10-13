@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 
 
 class Product(models.Model):
@@ -15,12 +16,28 @@ class Product(models.Model):
     sugars_100g = models.DecimalField(
         max_digits=6, decimal_places=3, null=True
     )
-    category = models.CharField(max_length=128)
+    first_category = models.CharField(max_length=128)
+    second_category = models.CharField(max_length=128)
 
     def __str__(self):
         return self.product_name
 
     def find_substitute(self):
-        return Product.objects.filter(
-            category=self.category, nutriscore_grade__lt=self.nutriscore_grade
-        ).order_by("nutriscore_grade", "nova_group")
+        results = (
+            Product.objects.filter(first_category=self.first_category)
+            .filter(
+                Q(nutriscore_grade__lt=self.nutriscore_grade)
+                | Q(nova_group__lt=self.nova_group)
+            )
+            .order_by("nutriscore_grade", "nova_group")
+        )
+        if not results:
+            results = (
+                Product.objects.filter(first_category=self.second_category)
+                .filter(
+                    Q(nutriscore_grade__lt=self.nutriscore_grade)
+                    | Q(nova_group__lt=self.nova_group)
+                )
+                .order_by("nutriscore_grade", "nova_group")
+            )
+        return results
