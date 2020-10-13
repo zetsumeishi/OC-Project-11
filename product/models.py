@@ -1,5 +1,4 @@
 from django.db import models
-from django.db.models import Q
 
 
 class Product(models.Model):
@@ -23,21 +22,13 @@ class Product(models.Model):
         return self.product_name
 
     def find_substitute(self):
-        results = (
-            Product.objects.filter(first_category=self.first_category)
-            .filter(
-                Q(nutriscore_grade__lt=self.nutriscore_grade)
-                | Q(nova_group__lt=self.nova_group)
-            )
-            .order_by("nutriscore_grade", "nova_group")
-        )
+        results = Product.objects.filter(
+            first_category=self.first_category,
+            nutriscore_grade__lt=self.nutriscore_grade,
+        ).order_by("nutriscore_grade", "nova_group")
         if not results:
-            results = (
-                Product.objects.filter(first_category=self.second_category)
-                .filter(
-                    Q(nutriscore_grade__lt=self.nutriscore_grade)
-                    | Q(nova_group__lt=self.nova_group)
-                )
-                .order_by("nutriscore_grade", "nova_group")
-            )
+            results = Product.objects.filter(
+                first_category=self.second_category,
+                nutriscore_grade__lt=self.nutriscore_grade,
+            ).order_by("nutriscore_grade", "nova_group")
         return results
