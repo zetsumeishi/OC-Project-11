@@ -20,7 +20,8 @@ class ProductModelsTests(LiveServerTestCase):
             "fat_100g": 42.700,
             "salt_100g": 0.153,
             "sugars_100g": 39.900,
-            "category": "bonbons",
+            "first_category": "bonbons",
+            "second_category": "confectioneries",
         }
         self.product = Product(**self.product_data)
 

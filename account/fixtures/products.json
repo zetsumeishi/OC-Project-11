@@ -12,14 +12,15 @@
          "fat_100g":29.500,
          "salt_100g":0.570,
          "sugars_100g":58.000,
-         "category":"milk-chocolates"
+         "first_category":"milk-chocolates",
+         "second_category":"bonbons"
       }
    },
    {
       "model":"product.product",
       "pk":2,
       "fields":{
-         "product_name":"I love Milka Pralinès Nuss-Nougat-Crème",
+         "product_name":"Pralinès",
          "url":"https://fr.openfoodfacts.org/produit/7622210146038",
          "image_url":"https://static.openfoodfacts.org/images/products/762/221/014/6038/front_de.13.400.jpg",
          "nova_group":"4",
@@ -28,7 +29,8 @@
          "fat_100g":33.000,
          "salt_100g":0.350,
          "sugars_100g":545.000,
-         "category":"bonbons"
+         "first_category":"milk-chocolates",
+         "second_category":"bonbons"
       }
    },
    {
@@ -38,29 +40,65 @@
          "product_name":"Milka - Crispello - Saveur Vanille",
          "url":"https://fr.openfoodfacts.org/produit/7622300690670",
          "image_url":"https://static.openfoodfacts.org/images/products/762/230/069/0670/front_fr.10.400.jpg",
-         "nova_group":"2",
-         "nutriscore_grade":"b",
+         "nova_group":"4",
+         "nutriscore_grade":"e",
          "saturated_fat_100g":17.500,
          "fat_100g":35.000,
          "salt_100g":0.381,
          "sugars_100g":40.500,
-         "category":"milk-chocolates"
+         "first_category":"confectioneries",
+         "second_category":"bonbons"
       }
    },
    {
       "model":"product.product",
       "pk":4,
       "fields":{
+         "product_name":"Ferrero Rocher",
+         "url":"https://fr.openfoodfacts.org/produit/4008400163826",
+         "image_url":"https://static.openfoodfacts.org/images/products/400/840/016/3826/front_de.8.400.jpg",
+         "nova_group":"4",
+         "nutriscore_grade":"e",
+         "saturated_fat_100g":14.100,
+         "fat_100g":42.700,
+         "salt_100g":0.153,
+         "sugars_100g":39.900,
+         "first_category":"bonbons",
+         "second_category":"confectioneries"
+      }
+   },
+   {
+      "model":"product.product",
+      "pk":5,
+      "fields":{
+         "product_name":"Super Salmiakki",
+         "url":"https://fr.openfoodfacts.org/produit/6416453038141",
+         "image_url":"https://static.openfoodfacts.org/images/products/641/645/303/8141/front_fi.15.400.jpg",
+         "nova_group":"4",
+         "nutriscore_grade":"b",
+         "saturated_fat_100g":0.100,
+         "fat_100g":0.500,
+         "salt_100g":0.040,
+         "sugars_100g":0.500,
+         "first_category":"bonbons",
+         "second_category":"confectioneries"
+      }
+   },
+   {
+      "model":"product.product",
+      "pk":6,
+      "fields":{
          "product_name":"i Love Milka Pralinés",
          "url":"https://fr.openfoodfacts.org/produit/7622300215286",
          "image_url":"https://static.openfoodfacts.org/images/products/762/230/021/5286/front_fr.9.400.jpg",
-         "nova_group":"4",
-         "nutriscore_grade":"e",
+         "nova_group":"3",
+         "nutriscore_grade":"b",
          "saturated_fat_100g":17.500,
          "fat_100g":33.000,
          "salt_100g":0.350,
          "sugars_100g":54.500,
-         "category":"bonbons"
+         "first_category":"bonbons",
+         "second_category":"confectioneries"
       }
    }
 ]
