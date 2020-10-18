@@ -80,7 +80,7 @@ WSGI_APPLICATION = "pur_beurre.wsgi.application"
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "mydatabase"}
+    "default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "db.sqlite"}
 }
 
 # Password validation
