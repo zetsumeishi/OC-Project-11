@@ -29,8 +29,9 @@ class Command(BaseCommand):
 
                 rows_count = 0
                 for row in reader:
-                    # Check if there's a nutriscore_grade and nova_group
-                    if row[44] and row[45]:
+                    # Check if there's a product_name, nutriscore_grade,
+                    # categories_tags
+                    if row[4] and row[44] and row[13]:
                         rows_count += 1
                         writer.writerow(row)
 
