@@ -11,6 +11,7 @@ class ProductModelsTests(LiveServerTestCase):
 
     def setUp(self):
         self.product_data = {
+            "id": 8,
             "product_name": "Ferrero Rocher",
             "url": "https://fr.openfoodfacts.org/produit/4008400163826",
             "image_url": "https://static.openfoodfacts.org/images/products/400/840/016/3826/front_de.8.400.jpg",  # NOQA
@@ -20,8 +21,6 @@ class ProductModelsTests(LiveServerTestCase):
             "fat_100g": 42.700,
             "salt_100g": 0.153,
             "sugars_100g": 39.900,
-            "first_category": "bonbons",
-            "second_category": "confectioneries",
         }
         self.product = Product(**self.product_data)
 
@@ -30,7 +29,7 @@ class ProductModelsTests(LiveServerTestCase):
         self.assertEqual(str(self.product), self.product_data["product_name"])
 
     def test_find_substitute(self):
-        self.assertTrue(self.product.find_substitute())
+        self.assertFalse(self.product.find_substitute())
 
     def tearDown(self):
         pass
@@ -38,7 +37,7 @@ class ProductModelsTests(LiveServerTestCase):
 
 class ProductFormsTests(TestCase):
     def test_forms(self):
-        form_data = {"product_name": "Ferrero Rocher"}
+        form_data = {"product_name": "duette vanille"}
         form = SearchForm(data=form_data)
         self.assertTrue(form.is_valid())
         form_data = {"product_name": ""}
@@ -50,7 +49,7 @@ class ProductViewsTests(LiveServerTestCase):
     fixtures = ["products.json"]
 
     def setUp(self):
-        self.search_term = "Pralinès"
+        self.search_term = "duette vanille"
         self.client = Client()
 
     def test_search(self):

@@ -52,7 +52,7 @@ class AccountModelsTests(TestCase):
 
     def setUp(self):
         self.user = Account.objects.get(email="olivier.loustaunau@gmail.com")
-        self.user.favorites.add(Product.objects.get(pk=1))
+        self.user.favorites.add(Product.objects.get(pk=7))
 
     def test_models_methods(self):
         self.assertEqual(self.user.__str__(), "olivier.loustaunau@gmail.com")
@@ -66,7 +66,7 @@ class AccountViewsTests(StaticLiveServerTestCase):
 
     def setUp(self):
         self.user = Account.objects.get(email="olivier.loustaunau@gmail.com")
-        self.user.favorites.add(Product.objects.get(pk=1))
+        self.user.favorites.add(Product.objects.get(pk=7))
         self.client = Client()
 
     def test_signup(self):
@@ -99,7 +99,7 @@ class AccountViewsTests(StaticLiveServerTestCase):
         self.client.force_login(self.user)
         response = self.client.get(
             reverse("account:add_favorite"),
-            {"product_id": 1},
+            {"product_id": 7},
             HTTP_X_REQUESTED_WITH="XMLHttpRequest",
         )
         self.assertEqual(response.status_code, 200)
@@ -110,12 +110,12 @@ class AccountViewsTests(StaticLiveServerTestCase):
         self.client.force_login(self.user)
         response = self.client.get(
             reverse("account:add_favorite"),
-            {"product_id": 1},
+            {"product_id": 7},
             HTTP_X_REQUESTED_WITH="XMLHttpRequest",
         )
         response = self.client.get(
             reverse("account:remove_favorite"),
-            {"product_id": 1},
+            {"product_id": 7},
             HTTP_X_REQUESTED_WITH="XMLHttpRequest",
         )
         self.assertEqual(response.status_code, 200)
@@ -159,7 +159,7 @@ class AccountViewsTests(StaticLiveServerTestCase):
         url = self.live_server_url + reverse("www:home")
         self.selenium.get(url)
         self.selenium.find_element_by_id("jumbotron_product_name").send_keys(
-            "Milka Daim" + Keys.RETURN
+            "duette vanille" + Keys.RETURN
         )
         self.selenium.find_element_by_class_name("favorite-link").click()
         self.assertTrue(self.user.favorites.all())
