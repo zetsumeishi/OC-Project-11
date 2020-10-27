@@ -16,8 +16,6 @@ before_script:
 script:
   - python manage.py makemigrations  --settings="pur_beurre.test_settings"
   - python manage.py migrate --settings="pur_beurre.test_settings"
-  - python manage.py format_csv --settings="pur_beurre.test_settings"
-  - python manage.py import_csv --settings="pur_beurre.test_settings"
   - coverage run -m manage test --settings="pur_beurre.test_settings"
 
 after_success:
