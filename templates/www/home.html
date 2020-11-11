@@ -55,17 +55,27 @@ Accueil
     </p>
     <div class="container mt-5">
       <div class="row">
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-12">
           <i class="fas fa-phone-alt"></i>
           <p>05 45 13 37 42</p>
         </div>
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-12">
           <form action="{% url 'www:send-email' %}" method="post">
               {% csrf_token %}
-              {{ contact_form.from_email }}
-              {{ contact_form.subject }}
-              {{ contact_form.content }}
-              <button type="submit">Send</button>
+              <div class="row justify-content-center">
+                <div class="col-3">
+                  {{ contact_form.from_email }}
+                </div>
+                <div class="col-3">
+                  {{ contact_form.subject }}
+                </div>
+              </div>
+              <div class="row justify-content-center col-6 offset-3" id="mail-content">
+                {{ contact_form.content }}
+              </div>
+              <div class="row justify-content-center col-6 offset-3">
+                <button type="submit">Send</button>
+              </div>
           </form>
         </div>
       </div>
