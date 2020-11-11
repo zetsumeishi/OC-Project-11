@@ -31,7 +31,13 @@ class Command(BaseCommand):
                 for row in reader:
                     # Check if there's a product_name, nutriscore_grade,
                     # categories_tags
-                    if row[4] and row[44] and row[13]:
+                    if (
+                        row[5]
+                        and row[45]
+                        and row[14]
+                        and row[46]
+                        and "/" not in row[5]
+                    ):
                         rows_count += 1
                         writer.writerow(row)
 

@@ -5,4 +5,7 @@ register = template.Library()
 
 @register.filter
 def round_float(value):
-    return "{:,.1f}".format(value)
+    if value:
+        return "{:,.1f}".format(value)
+    else:
+        return "0"

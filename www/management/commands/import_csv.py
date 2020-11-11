@@ -22,8 +22,16 @@ class Command(BaseCommand):
                 for row in reader:
                     product_data = dict()
                     for field in PRODUCT_FIELDS:
-                        if row[field].isdigit():
-                            product_data[field] = Decimal(row[field])
+                        if field in [
+                            "fat_100g",
+                            "saturated_fat_100g",
+                            "sugars_100g",
+                            "salt_100g",
+                        ]:
+                            if row[field].isdigit():
+                                product_data[field] = Decimal(row[field])
+                            elif not row[field]:
+                                product_data[field] = Decimal("0")
                         elif field == "categories_tags":
                             categories = row[field].split(",")
                             category_obj_lst = list()

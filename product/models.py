@@ -39,4 +39,4 @@ class Product(models.Model):
                 > 4
             ):
                 res.append(product)
-        return res
+        return res[:20]
