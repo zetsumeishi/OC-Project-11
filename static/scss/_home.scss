@@ -55,13 +55,13 @@ section#contact {
     }
   }
   & input, textarea {
-    border-radius: 0px;
+    border-radius: 2px;
     border: none;
+    padding: 5px;
     width: 100%;
   }
   & textarea {
     margin-top:5px;
-    padding: 5px;
   }
   & #mail-content {
     & + .row {

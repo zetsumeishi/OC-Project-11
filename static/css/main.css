@@ -162,12 +162,12 @@ section#contact {
     section#contact a:hover {
       color: white; }
   section#contact input, section#contact textarea {
-    border-radius: 0px;
+    border-radius: 2px;
     border: none;
+    padding: 5px;
     width: 100%; }
   section#contact textarea {
-    margin-top: 5px;
-    padding: 5px; }
+    margin-top: 5px; }
   section#contact #mail-content + .row {
     margin-top: 5px; }
   section#contact button[type="submit"] {
